@@ -114,6 +114,7 @@
     <Compile Include="Clases\cPunitorioCobranza.cs" />
     <Compile Include="Clases\cPunitorioCuota.cs" />
     <Compile Include="Clases\cPunitorioCuotasAnteriores.cs" />
+    <Compile Include="Clases\cReporte.cs" />
     <Compile Include="Clases\cResumenCuentas.cs" />
     <Compile Include="Clases\cSaldoCobranza.cs" />
     <Compile Include="Clases\cSaldoCobranzaGeneral.cs" />
@@ -136,6 +137,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>COPIACONCESIONARIADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsReporte.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsReporte.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -244,6 +250,12 @@
     </Compile>
     <Compile Include="FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBoletoGMotor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBoletoGMotor.Designer.cs">
+      <DependentUpon>FrmBoletoGMotor.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBorrarTablas.cs">
       <SubType>Form</SubType>
@@ -799,6 +811,9 @@
     <EmbeddedResource Include="FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBoletoGMotor.resx">
+      <DependentUpon>FrmBoletoGMotor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBorrarTablas.resx">
       <DependentUpon>FrmBorrarTablas.cs</DependentUpon>
     </EmbeddedResource>
@@ -1060,6 +1075,7 @@
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="ReporteListado.rdlc" />
+    <EmbeddedResource Include="Reportes\BoletoGMotor.rdlc" />
     <EmbeddedResource Include="ReporteVentas.rdlc" />
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -1086,6 +1102,17 @@
     </None>
     <None Include="COPIACONCESIONARIADataSet.xss">
       <DependentUpon>COPIACONCESIONARIADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DsReporte.xsc">
+      <DependentUpon>DsReporte.xsd</DependentUpon>
+    </None>
+    <None Include="DsReporte.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsReporte.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsReporte.xss">
+      <DependentUpon>DsReporte.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1147,7 +1174,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
-    <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

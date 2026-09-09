@@ -164,10 +164,13 @@ namespace Concesionaria
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            ImprimirBoletoGMotors();
+            /*
             GrabarDatos();
 
             FrmReporte form = new FrmReporte();
             form.Show();
+            */
         }
 
         private string GetTextoFecha()
@@ -515,11 +518,15 @@ namespace Concesionaria
             string Texto = "";
             cStockAuto obj = new cStockAuto();
             DataTable trdo = obj.GetStockxCodigo(CodStock);
-            if (trdo.Rows.Count >0)
+            if (trdo.Rows[0]["CodCliente"].ToString()!="")
             {
-                Int32 CodCliente = Convert.ToInt32(trdo.Rows[0]["CodCliente"].ToString()); ;
-                Texto = GetDatosClientexCod(CodCliente);
+                if (trdo.Rows.Count > 0)
+                {
+                    Int32 CodCliente = Convert.ToInt32(trdo.Rows[0]["CodCliente"].ToString()); ;
+                    Texto = GetDatosClientexCod(CodCliente);
+                }
             }
+           
             return Texto;
         }
 
@@ -569,6 +576,23 @@ namespace Concesionaria
             if (Provincia != "")
                 texto = texto + ", Provincia " + Provincia;
             return texto;
+        }
+
+        private void ImprimirBoletoGMotors()
+        {
+            cReporte reporte = new Clases.cReporte();
+            int Orden = 1;
+            string Cliente = txtNombre.Text;
+            string Parte1 = "";
+            Parte1 = "Conste por el presente que la Concesionaria GMotors, ";
+            Parte1 = Parte1 + "Domiciliado en Av.Amancio Alcorta 50, Boulogne, San Isidro, Vende ";
+            Parte1 = Parte1 + "y Transfiere al Señor/a xxx ";
+            Parte1 = Parte1.Replace("xxx", Cliente);
+            reporte.Borrar();
+            reporte.Insertar(Orden, Parte1, "", "", "", "", "", "", "", "", "");
+            FrmBoletoGMotor frm = new FrmBoletoGMotor();
+            frm.Show();
+
         }
     }
 }

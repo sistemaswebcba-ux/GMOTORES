@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\PROGRAMACION 3\\GMOTORS\\GMOTORES\\Concesionaria\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|d:\\programacion 3\\gmotors\\gmotores\\concesionaria\\concesionaria\\dsreporte.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{ECB3B401-74D4-4426-8777-BE26C4E44AB4}|Concesionaria\\Concesionaria.csproj|solutionrelative:concesionaria\\dsreporte.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DsReporte.xsd",
+              "DocumentMoniker": "D:\\PROGRAMACION 3\\GMOTORS\\GMOTORES\\Concesionaria\\Concesionaria\\DsReporte.xsd",
+              "RelativeDocumentMoniker": "Concesionaria\\DsReporte.xsd",
+              "ToolTip": "D:\\PROGRAMACION 3\\GMOTORS\\GMOTORES\\Concesionaria\\Concesionaria\\DsReporte.xsd",
+              "RelativeToolTip": "Concesionaria\\DsReporte.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2026-09-09T20:40:59.474Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

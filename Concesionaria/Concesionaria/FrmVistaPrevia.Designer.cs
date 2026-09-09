@@ -29,26 +29,31 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtFecha = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtTarjetaAzul = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtGastosTransferencia = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtGastosTransferencia = new System.Windows.Forms.TextBox();
             this.GrillaGastos = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtFormaPago = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtTarjetaAzul = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtTextoDocumento = new System.Windows.Forms.TextBox();
+            this.txtTextoEfectivo = new System.Windows.Forms.TextBox();
+            this.txtTextoSenia = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtImportePrenda = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -60,6 +65,8 @@
             this.txtAutoPartePago = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtComprador = new System.Windows.Forms.TextBox();
+            this.txtExTitular = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txtMultas = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -74,19 +81,12 @@
             this.txtFirmasyForm = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtVerificacion = new System.Windows.Forms.TextBox();
-            this.txtTextoSenia = new System.Windows.Forms.TextBox();
-            this.txtTextoEfectivo = new System.Windows.Forms.TextBox();
-            this.txtTextoDocumento = new System.Windows.Forms.TextBox();
             this.txtAuto = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtFormaPago = new System.Windows.Forms.TextBox();
-            this.txtExTitular = new System.Windows.Forms.TextBox();
-            this.txtComprador = new System.Windows.Forms.TextBox();
-            this.txtFecha = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaGastos)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +112,13 @@
             this.groupBox1.Text = "Datos de Comprador";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(360, 127);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(137, 23);
+            this.txtFecha.TabIndex = 16;
+            // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(101, 127);
@@ -127,6 +134,71 @@
             this.label6.Size = new System.Drawing.Size(32, 17);
             this.label6.TabIndex = 11;
             this.label6.Text = "Tel.";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtTarjetaAzul);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.txtGastosTransferencia);
+            this.groupBox3.Controls.Add(this.txtPrecio);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(299, 22);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(198, 53);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Importe";
+            this.groupBox3.Visible = false;
+            // 
+            // txtTarjetaAzul
+            // 
+            this.txtTarjetaAzul.Location = new System.Drawing.Point(128, 65);
+            this.txtTarjetaAzul.Name = "txtTarjetaAzul";
+            this.txtTarjetaAzul.Size = new System.Drawing.Size(159, 23);
+            this.txtTarjetaAzul.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(11, 65);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(83, 17);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Tarjeta azul";
+            // 
+            // txtGastosTransferencia
+            // 
+            this.txtGastosTransferencia.Location = new System.Drawing.Point(128, 36);
+            this.txtGastosTransferencia.Name = "txtGastosTransferencia";
+            this.txtGastosTransferencia.Size = new System.Drawing.Size(159, 23);
+            this.txtGastosTransferencia.TabIndex = 14;
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(125, 94);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(390, 23);
+            this.txtPrecio.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 94);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 17);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Precio";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(109, 17);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Gastos de trans";
             // 
             // txtDireccion
             // 
@@ -176,47 +248,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(125, 94);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(390, 23);
-            this.txtPrecio.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 94);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 17);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Precio";
-            // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(692, 25);
+            this.btnImprimir.Location = new System.Drawing.Point(656, 25);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 36);
             this.btnImprimir.TabIndex = 6;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 36);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 17);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Gastos de trans";
-            // 
-            // txtGastosTransferencia
-            // 
-            this.txtGastosTransferencia.Location = new System.Drawing.Point(128, 36);
-            this.txtGastosTransferencia.Name = "txtGastosTransferencia";
-            this.txtGastosTransferencia.Size = new System.Drawing.Size(159, 23);
-            this.txtGastosTransferencia.TabIndex = 14;
             // 
             // GrillaGastos
             // 
@@ -240,6 +280,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Forma de Pago";
             // 
+            // txtFormaPago
+            // 
+            this.txtFormaPago.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFormaPago.Location = new System.Drawing.Point(6, 17);
+            this.txtFormaPago.Multiline = true;
+            this.txtFormaPago.Name = "txtFormaPago";
+            this.txtFormaPago.Size = new System.Drawing.Size(446, 181);
+            this.txtFormaPago.TabIndex = 48;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -248,39 +297,6 @@
             this.label4.Size = new System.Drawing.Size(160, 17);
             this.label4.TabIndex = 43;
             this.label4.Text = "Gastos de transferencia";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtTarjetaAzul);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.txtGastosTransferencia);
-            this.groupBox3.Controls.Add(this.txtPrecio);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(299, 22);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(198, 53);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Importe";
-            this.groupBox3.Visible = false;
-            // 
-            // txtTarjetaAzul
-            // 
-            this.txtTarjetaAzul.Location = new System.Drawing.Point(128, 65);
-            this.txtTarjetaAzul.Name = "txtTarjetaAzul";
-            this.txtTarjetaAzul.Size = new System.Drawing.Size(159, 23);
-            this.txtTarjetaAzul.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 65);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 17);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Tarjeta azul";
             // 
             // groupBox4
             // 
@@ -303,6 +319,27 @@
             this.groupBox4.TabIndex = 44;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Forma de pago";
+            // 
+            // txtTextoDocumento
+            // 
+            this.txtTextoDocumento.Location = new System.Drawing.Point(218, 90);
+            this.txtTextoDocumento.Name = "txtTextoDocumento";
+            this.txtTextoDocumento.Size = new System.Drawing.Size(402, 23);
+            this.txtTextoDocumento.TabIndex = 21;
+            // 
+            // txtTextoEfectivo
+            // 
+            this.txtTextoEfectivo.Location = new System.Drawing.Point(218, 61);
+            this.txtTextoEfectivo.Name = "txtTextoEfectivo";
+            this.txtTextoEfectivo.Size = new System.Drawing.Size(402, 23);
+            this.txtTextoEfectivo.TabIndex = 20;
+            // 
+            // txtTextoSenia
+            // 
+            this.txtTextoSenia.Location = new System.Drawing.Point(218, 29);
+            this.txtTextoSenia.Name = "txtTextoSenia";
+            this.txtTextoSenia.Size = new System.Drawing.Size(402, 23);
+            this.txtTextoSenia.TabIndex = 19;
             // 
             // label13
             // 
@@ -411,6 +448,22 @@
             this.groupBox5.TabIndex = 46;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Auto en parte de pago";
+            // 
+            // txtComprador
+            // 
+            this.txtComprador.Location = new System.Drawing.Point(754, 3);
+            this.txtComprador.Name = "txtComprador";
+            this.txtComprador.Size = new System.Drawing.Size(199, 23);
+            this.txtComprador.TabIndex = 50;
+            this.txtComprador.Visible = false;
+            // 
+            // txtExTitular
+            // 
+            this.txtExTitular.Location = new System.Drawing.Point(535, 3);
+            this.txtExTitular.Name = "txtExTitular";
+            this.txtExTitular.Size = new System.Drawing.Size(199, 23);
+            this.txtExTitular.TabIndex = 49;
+            this.txtExTitular.Visible = false;
             // 
             // label21
             // 
@@ -538,27 +591,6 @@
             this.txtVerificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVerificacion_KeyPress);
             this.txtVerificacion.Leave += new System.EventHandler(this.txtVerificacion_Leave);
             // 
-            // txtTextoSenia
-            // 
-            this.txtTextoSenia.Location = new System.Drawing.Point(218, 29);
-            this.txtTextoSenia.Name = "txtTextoSenia";
-            this.txtTextoSenia.Size = new System.Drawing.Size(402, 23);
-            this.txtTextoSenia.TabIndex = 19;
-            // 
-            // txtTextoEfectivo
-            // 
-            this.txtTextoEfectivo.Location = new System.Drawing.Point(218, 61);
-            this.txtTextoEfectivo.Name = "txtTextoEfectivo";
-            this.txtTextoEfectivo.Size = new System.Drawing.Size(402, 23);
-            this.txtTextoEfectivo.TabIndex = 20;
-            // 
-            // txtTextoDocumento
-            // 
-            this.txtTextoDocumento.Location = new System.Drawing.Point(218, 90);
-            this.txtTextoDocumento.Name = "txtTextoDocumento";
-            this.txtTextoDocumento.Size = new System.Drawing.Size(402, 23);
-            this.txtTextoDocumento.TabIndex = 21;
-            // 
             // txtAuto
             // 
             this.txtAuto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -576,38 +608,6 @@
             this.label12.Size = new System.Drawing.Size(50, 13);
             this.label12.TabIndex = 16;
             this.label12.Text = "Vehículo";
-            // 
-            // txtFormaPago
-            // 
-            this.txtFormaPago.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFormaPago.Location = new System.Drawing.Point(6, 17);
-            this.txtFormaPago.Multiline = true;
-            this.txtFormaPago.Name = "txtFormaPago";
-            this.txtFormaPago.Size = new System.Drawing.Size(446, 181);
-            this.txtFormaPago.TabIndex = 48;
-            // 
-            // txtExTitular
-            // 
-            this.txtExTitular.Location = new System.Drawing.Point(535, 3);
-            this.txtExTitular.Name = "txtExTitular";
-            this.txtExTitular.Size = new System.Drawing.Size(199, 23);
-            this.txtExTitular.TabIndex = 49;
-            this.txtExTitular.Visible = false;
-            // 
-            // txtComprador
-            // 
-            this.txtComprador.Location = new System.Drawing.Point(754, 3);
-            this.txtComprador.Name = "txtComprador";
-            this.txtComprador.Size = new System.Drawing.Size(199, 23);
-            this.txtComprador.TabIndex = 50;
-            this.txtComprador.Visible = false;
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Location = new System.Drawing.Point(360, 127);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(137, 23);
-            this.txtFecha.TabIndex = 16;
             // 
             // FrmVistaPrevia
             // 
@@ -629,11 +629,11 @@
             this.Load += new System.EventHandler(this.FrmVistaPrevia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaGastos)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
