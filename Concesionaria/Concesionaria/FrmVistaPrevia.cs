@@ -27,7 +27,28 @@ namespace Concesionaria
             {
                 CargarDatos(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 BuscarGastosTransferencia(Convert.ToInt32(Principal.CodigoPrincipalAbm));
-               
+                CargarMontosVenta(Convert.ToInt32(Principal.CodigoPrincipalAbm));
+            }
+        }
+
+        private void CargarMontosVenta(Int32 CodVenta)
+        {
+            cVenta venta = new Clases.cVenta();
+            cGastoTransferencia gasto = new cGastoTransferencia();
+            Double ImporteVenta = 0;
+            Double GastosTransferencia = 0;
+            GastosTransferencia = gasto.GetTotalGastosTransferencia(CodVenta);
+            cFunciones fun = new cFunciones();
+            DataTable trdo = venta.GetVentaxCodigo(CodVenta);
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["ImporteVenta"].ToString ()!="")
+                {
+                    //al importe de la venta le sumo los gastos de transferencia
+                    ImporteVenta = Convert.ToDouble(trdo.Rows[0]["ImporteVenta"].ToString());
+                    ImporteVenta = ImporteVenta + GastosTransferencia;
+                    txtImporteVenta.Text = fun.SepararDecimales(ImporteVenta.ToString());
+                }
             }
         }
 
@@ -46,10 +67,10 @@ namespace Concesionaria
                 txtFecha.Text = Fecha.ToShortDateString();
                 Int32 CodCliente = Convert.ToInt32(trdo.Rows[0]["CodCliente"].ToString());
                 Comprador = GetDatosClientexCod(CodCliente);
-                txtComprador.Text = Comprador;
+             
                 Int32 CodStock = Convert.ToInt32(trdo.Rows[0]["CodStock"].ToString());
                 ExTitular = GetExTitular(CodStock);
-                txtExTitular.Text = ExTitular;
+              
                 DataTable tcli = cliente.GetClientesxCodigo(CodCliente);
                 if (tcli.Rows.Count > 0)
                 {
@@ -205,190 +226,13 @@ namespace Concesionaria
 
         private void AgregarGasto(string Codigo, string Descripcion, string Importe, string Tipo)
         {
-            for (int i = 0; i < GrillaGastos.Rows.Count - 1; i++)
-            {
-                if (GrillaGastos.Rows[i].Cells[0].Value.ToString() == Codigo.ToString() && GrillaGastos.Rows[i].Cells[2].Value.ToString() == Tipo)
-                {
-                    MessageBox.Show("Ya se ha ingresado el gasto", Clases.cMensaje.Mensaje());
-                    return;
-                }
-            }
-            DataTable tListado = new DataTable();
-            tListado.Columns.Add("Codigo");
-            tListado.Columns.Add("Descripcion");
-            tListado.Columns.Add("Tipo");
-            tListado.Columns.Add("Importe");
-            for (int i = 0; i < GrillaGastos.Rows.Count - 1; i++)
-            {
-                string sCodigo = GrillaGastos.Rows[i].Cells[0].Value.ToString();
-                string sDescripcion = GrillaGastos.Rows[i].Cells[1].Value.ToString();
-                string sTipo = GrillaGastos.Rows[i].Cells[2].Value.ToString();
-                string sImporte = GrillaGastos.Rows[i].Cells[3].Value.ToString();
-                DataRow r;
-                r = tListado.NewRow();
-                r[0] = sCodigo;
-                r[1] = sDescripcion;
-                r[2] = sTipo;
-                r[3] = sImporte;
-                tListado.Rows.Add(r);
-            }
-            DataRow r1;
-            r1 = tListado.NewRow();
-            r1[0] = Codigo;
-            r1[1] = Descripcion;
-            r1[2] = Tipo;
-            r1[3] = Importe;
-            tListado.Rows.Add(r1);
-            GrillaGastos.DataSource = tListado;
-            Clases.cFunciones fun = new Clases.cFunciones();
-          // txtTotalGasto.Text = fun.CalcularTotalGrilla(GrillaGastos, "Importe").ToString();
-         //   if (txtTotalGasto.Text != "")
-        //    {
-
-        //        txtTotalGasto.Text = fun.FormatoEnteroMiles(txtTotalGasto.Text);
-        //    }
-            //GrillaGastos.Columns[0].Visible = false;
-            //GrillaGastos.Columns[2].Visible = false;
-            //txtImporteGastoTransferencia.Text = "";
-            //txtImporteGastoRecepcion.Text = "";
-            //GrillaGastos.Columns[1].Width = 250;
-
-            //txtTotalGastosRecepcion.Text = fun.CalcularTotalGrilla(GrillaGastosRecepcion, "Importe").ToString();
-            //if (txtTotalGastosRecepcion.Text != "")
-            //{
-            //    txtTotalGastosRecepcion.Text = fun.FormatoEnteroMiles(txtTotalGastosRecepcion.Text);
-            //}
-
-            //double TotalVenta = 0;
-            //double PrecioVenta = 0;
-            //double TotalGastos = 0;
-            //double TotalGastosRecepcion = 0;
-
-            //if (txtTotalVenta.Text != "")
-            //{
-            //    PrecioVenta = fun.ToDouble(txtPrecioVenta.Text);
-            //}
-
-            //if (txtTotalGasto.Text != "")
-            //{
-            //    TotalGastos = fun.ToDouble(txtTotalGasto.Text);
-            //}
-
-            //if (txtTotalGastosRecepcion.Text != "")
-            //{
-            //    TotalGastosRecepcion = fun.ToDouble(txtTotalGastosRecepcion.Text);
-            //}
-
-            //TotalVenta = PrecioVenta + TotalGastos + TotalGastosRecepcion;
-            //txtTotalVenta.Text = TotalVenta.ToString();
-            //txtTotalVenta.Text = fun.FormatoEnteroMiles(txtTotalVenta.Text);
-            ////CalcularSubTotal(); 
+                     
         }
 
-        private string GetFormasPago()
-        {
-            Clases.cFunciones fun = new Clases.cFunciones ();
-            string texto = "";
-            int b = 0;
-            if (txtSenia.Text != "")
-            {
-                texto = "Seña adelanto " + txtSenia.Text;
-                b = 1;
-            }
-            if (txtEfectivo.Text != "")
-            {
-                if (b == 0)
-                    texto = " efectivo en este acto " + txtEfectivo.Text;
-                else
-                    texto = texto + ",efectivo en este acto " + txtEfectivo.Text;
-                b = 1;
-            }
-            if (txtDocumentos.Text != "")
-            {
-                if (b == 0)
-                    texto = " Documento de " + txtDocumentos.Text;
-                else
-                    texto = texto + ", Documento de " + txtDocumentos.Text;
-            }
-
-            if (txtAutoPartePago.Text != "")
-                texto = texto + txtAutoPartePago.Text;
-
-            // busco si hubo prenda
-            Clases.cPrenda prenda = new Clases.cPrenda();
-            DataTable trdo = prenda.GetPrendaxCodVenta(Convert.ToInt32(Principal.CodigoPrincipalAbm));
-            if (trdo.Rows.Count > 0)
-            {
-                string Importe = trdo.Rows[0]["Importe"].ToString();
-                Importe = fun.SepararDecimales(Importe);
-                Importe = fun.FormatoEnteroMiles(Importe);
-                string Descripcion = trdo.Rows[0]["Descripcion"].ToString();
-                texto = texto + ",crédito prendario a cargo de " + Descripcion;
-                texto = texto + ", por un valor de " + Importe;
-            }
-
-            texto = texto + ",sobre el cual se aplicaran los siguientes descuentos:";	
-			if (txtRentas.Text !="")
-				texto = texto +", rentas :" + txtRentas.Text ;
-			 
-			if (txtMunicipalidad.Text !="")
-				texto = texto +", municipalidad :" + txtMunicipalidad.Text ;
-			 
-			if (txtMultas.Text !="")
-				texto = texto +", multas :" + txtMultas.Text ;	
-
-            if (txtMultas.Text !="")
-				texto = texto +", rentas :" + txtMultas.Text ;
-	 
-             if (txtVerificacion.Text !="")  
-				texto = texto +", verificación :" + txtVerificacion.Text ;
-             
-             if (txtFirmasyForm.Text !="")  
-				texto = texto +", firmas y form. :" + txtFirmasyForm.Text ;
-             
-             if (txtCancelacionPrenda.Text !="")  
-				texto = texto +", cancelac prenda. :" + txtCancelacionPrenda.Text ;
-             
-            if (txtOtros.Text !="")  
-				texto = texto +", cancelac prenda. :" + txtOtros.Text ;
-																					
-
-            return texto;
-        }
-
+      
         public void GetAutoPartePago(Int32 CodVenta)
         {
-            Clases.cFunciones fun = new Clases.cFunciones();
-            Clases.cVenta obj = new Clases.cVenta();
-            DataTable trdo = obj.GetAutosPartePago(CodVenta);
-            if (trdo.Rows.Count > 0)
-            {
-                if (trdo.Rows[0]["CodAuto"].ToString()!="")
-                {
-                    string sImporte = trdo.Rows[0]["Importe"].ToString();
-                    if (sImporte != "" && sImporte !="0")
-                    {
-                        sImporte = fun.SepararDecimales(sImporte);
-                        sImporte = fun.FormatoEnteroMiles(sImporte);
-                    }
-                    Int32 CodAuto = Convert.ToInt32(trdo.Rows[0]["CodAuto"].ToString());
-                    Clases.cAuto auto = new Clases.cAuto();
-                    DataTable tauto = auto.GetAutoxCodigo(CodAuto);
-                    {
-                        if (tauto.Rows.Count > 0)
-                        {
-                            string Descrip = " Un vehículo" + tauto.Rows[0]["Marca"].ToString() + " " + tauto.Rows[0]["Descripcion"].ToString();
-                            Descrip = Descrip + " MOTOR N º" + tauto.Rows[0]["Motor"].ToString();
-                            Descrip = Descrip + " CHASIS N º" + tauto.Rows[0]["Chasis"].ToString();
-                            Descrip = Descrip + " AÑO " + tauto.Rows[0]["Anio"].ToString();
-                            Descrip = Descrip + " DOMINIO " + tauto.Rows[0]["Patente"].ToString();
-                            Descrip = Descrip + " valuado en " + sImporte;
-                            txtAutoPartePago.Text = Descrip;
-
-                        }
-                    }
-                }
-            }
+           
         }
 
         private void txtVerificacion_KeyPress(object sender, KeyPressEventArgs e)
@@ -435,44 +279,37 @@ namespace Concesionaria
 
         private void txtVerificacion_Leave(object sender, EventArgs e)
         {
-            Clases.cFunciones fun = new Clases.cFunciones ();
-            fun.FormatoEnteroMiles (txtVerificacion.Text);
+           
         }
 
         private void txtFirmasyForm_Leave(object sender, EventArgs e)
         {  
-            Clases.cFunciones fun = new Clases.cFunciones ();
-            fun.FormatoEnteroMiles (txtFirmasyForm.Text);
+           
         }
 
         private void txtRentas_Leave(object sender, EventArgs e)
         {   
-            Clases.cFunciones fun = new Clases.cFunciones ();
-            fun.FormatoEnteroMiles (txtRentas.Text);
+            
         }
 
         private void txtMunicipalidad_Leave(object sender, EventArgs e)
         {   
-            Clases.cFunciones fun = new Clases.cFunciones ();
-            fun.FormatoEnteroMiles (txtMunicipalidad.Text);
+            
         }
 
         private void txtCancelacionPrenda_Leave(object sender, EventArgs e)
         {   
-            Clases.cFunciones fun = new Clases.cFunciones ();
-            fun.FormatoEnteroMiles (txtCancelacionPrenda.Text);
+           
         }
 
         private void txtMultas_Leave(object sender, EventArgs e)
         {     
-            Clases.cFunciones fun = new Clases.cFunciones ();
-            fun.FormatoEnteroMiles (txtMultas.Text);
+            
         }
 
         private void txtOtros_Leave(object sender, EventArgs e)
         {  
-            Clases.cFunciones fun = new Clases.cFunciones ();
-            fun.FormatoEnteroMiles (txtOtros.Text);
+            
         }
 
         private string  GetExTitular(Int32 CodStock)
@@ -546,15 +383,24 @@ namespace Concesionaria
             int Orden = 1;
             string Cliente = txtNombre.Text;
             string Parte1 = "", Parte2 = "", Parte3 = "", Parte4 = "";
-            
+            string Parte5 = "", Parte6 = "", Parte7 = "", Parte8 = "";
             Parte1 = "Isidro, Vende ";
             Parte1 = Parte1 + "y Transfiere al Señor/a xxx ";
             Parte1 = Parte1.Replace("xxx", Cliente);
             Parte2 = "domiciliado es " + txtDireccion.Text;
             Parte3 = "Marca  " + txtMarca.Text + "       Modelo " + txtModelo.Text + "    Año " + txtAnio.Text;
             Parte4 = "Chasis " + txtChasis.Text +"       Motor " + txtMotor.Text + "      Patente " + txtPatente.Text;
+            Parte5 = "Expedido por la municipalidad de en el estado en que se encuentra ,tomando en la fecha el compradodr posesión del mismo de conformidad.";
+            Parte6 = "El precio de venta se establece en $ " + txtImporteVenta.Text;
+            Parte6 = Parte6 + " (" + txtTextoImporteVenta.Text + ")";
+            Parte7 = "Pagados de la siguiente forma ";
+            if (txtEfectivo.Text !="")
+            {
+                Parte7 = Parte7 + " Efectivo " + txtEfectivo.Text + "(" + txtTextoEfectivo.Text + ")";
+            }
+            Parte8 = "en este acto, sirviendo el presente de suficiente recibo; y el saldo de $ ";
             reporte.Borrar();
-            reporte.Insertar(Orden, Parte1, Parte2 , Parte3, Parte4, "", "", "", "", "", "");
+            reporte.Insertar(Orden, Parte1, Parte2 , Parte3, Parte4, Parte5, Parte6, Parte7, Parte8, "", "");
             FrmBoletoGMotor frm = new FrmBoletoGMotor();
             frm.Show();
 
