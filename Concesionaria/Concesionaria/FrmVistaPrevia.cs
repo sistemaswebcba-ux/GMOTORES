@@ -61,6 +61,10 @@ namespace Concesionaria
                     txtTelefono.Text = tcli.Rows[0]["Telefono"].ToString();
                     txtNombre.Text = nombre;
                     txtDni.Text = tcli.Rows[0]["NroDocumento"].ToString();
+                    if (tcli.Rows[0]["CodBarrio"].ToString ()!="")
+                    {
+                        GetCiudad(Convert.ToInt32(tcli.Rows[0]["CodBarrio"].ToString()));
+                    }
                 }
             }
             txtEfectivo.Text = trdo.Rows[0]["ImporteEfectivo"].ToString();
@@ -71,13 +75,12 @@ namespace Concesionaria
             {
                 if (tauto.Rows.Count > 0)
                 {
-                    string Descrip ="Marca "+ tauto.Rows[0]["Marca"].ToString();
-                    Descrip = Descrip + " con Dominio " + tauto.Rows[0]["Patente"].ToString();
-                   // Descrip = Descrip + " AÑO " + tauto.Rows[0]["Anio"].ToString();
-                  //  Descrip = Descrip + " DOMINIO " + tauto.Rows[0]["Patente"].ToString();
-                  //  Descrip = Descrip + " MOTOR N º" + tauto.Rows[0]["Motor"].ToString();
-                  //  Descrip = Descrip + " CHASIS N º" + tauto.Rows[0]["Chasis"].ToString();
-                    txtAuto.Text = Descrip; 
+                    txtMarca.Text = tauto.Rows[0]["Marca"].ToString();
+                    txtModelo.Text = tauto.Rows[0]["Descripcion"].ToString();
+                    txtChasis.Text = tauto.Rows[0]["Chasis"].ToString();
+                    txtMotor.Text = tauto.Rows[0]["Motor"].ToString();
+                    txtPatente.Text = tauto.Rows[0]["Patente"].ToString();
+                    txtAnio.Text = tauto.Rows[0]["Anio"].ToString();
                 }
             }
             Clases.cFunciones fun = new Clases.cFunciones();
@@ -105,61 +108,20 @@ namespace Concesionaria
             }
         }
 
+        private void GetCiudad(Int32 CodBarrio)
+        {
+            cCiudad ciudad = new cCiudad();
+            DataTable trdo = ciudad.GetCiudadxCodBarrio(CodBarrio);
+            if (trdo.Rows.Count >0)
+            {
+                string Nombre = trdo.Rows[0]["Nombre"].ToString();
+                txtDireccion.Text = txtDireccion.Text + " " + Nombre; 
+            }
+        }
+
         private void GrabarDatos()
         {
-            string NombreCliente = txtNombre.Text;
-            string DniCliente = txtDni.Text;
-            string DireccionCliente = txtDireccion.Text;
-            string Texto1 = "Entre JOSELO AUTOMOTORES, por cuenta y orden de exTitular ";
-            Texto1 = Texto1 + ", adelante la parte  VENDEDORA Y La Sr/a Comprador";
-            Texto1 = Texto1 + ", en adelante la parte COMPRADORA, todos mayores de edad y hábiles para contratar, convienen en celebrar el presente contrato";
-            Texto1 = Texto1 + " de compraventa de automotor sujeto a las  Cláusulas y concidiones adjuntas";
-            Texto1 = Texto1.Replace("Comprador", txtComprador.Text);
-            Texto1 = Texto1.Replace("exTitular", txtExTitular.Text);
 
-            string texto2 = "El VENDEDOR vende al COMPRADOR y este adquiere el automotor NombreAuto";
-            texto2 = texto2 + " EL vendedor entrega en este acto el vehículo al ";
-            texto2 = texto2 + "comprador en el estado que se encuentra que el mismo fue revisado y probado por este último, prestando el ";
-            texto2 = texto2 + "comprador su integra conformidad sobre el mismo, por lo cual acuerdan que el VENDEDOR no tendrá ";
-            texto2 = texto2 + "ninguna responsabilidad de resarcimiento por vicios ocultos.";
-            texto2 = texto2 + "El precio total de la unidad mencionada es de  PESOS " + txtPrecio.Text;
-            texto2 = texto2 + txtFormaPago.Text;
-            texto2 = texto2.Replace("NombreAuto", txtAuto.Text);
-
-            string texto3 = "El comprador recibe del vendedor el automotor objeto de la presente compraventa, de total conformidad ";
-            texto3 = texto3 + "Xº juntamente con la documentación del mismo, declarando el segundo que dicho rodado se encuentra  "; //aca viene el texto de forma pago
-            texto3 = texto3 + "libre de toda prenda o gravamen, como exento de medidas cautelares o similares  de carácter judicial.";
-            string Texto4 = "El comprador se obliga a realizar todos los tramites  de transferencia del dominio a su nombre ";
-            Texto4 = Texto4 + "dentro de los diez (10) días de la firma del presente, mediante las solicitudes del artículo 13 y del artículo ";
-            Texto4 = Texto4 + "14, en los términos del 15 y bajo el apercibimiento que prescribe el artículo 27 del Decreto -Ley 6582/58.";
-
-
-
-            string texto6 = "Para todos los efectos judiciales y extrajudiciales derivados del presente contrato, el vendedor constituye ";
-            texto6 = texto6 + "domicilio en la calle Av. Alvear 474 de la ciudad de Resistencia provincia del Chaco, y el comprador en ";
-            texto6 = texto6 + "RUTA 5 KM 28 ALTA GRACIA donde se consideraran validos todas las notificaciones y emplazamientos ";
-            texto6 = texto6 + "judiciales o extrajudiciales que se hagan.";
-
-            string Texto7 = "Asimismo ambas partes se someten a la competencia de los Tribunales de la Justicia Ordinaria de ";
-            Texto7 = Texto7 + "Resistencia Chaco, con renuncia a todo otro fuero o jurisdicción.";
-            Texto7 = Texto7 + "Se firman dos ejemplares de un mismo tenor y a solo efecto y cada parte recibe el suyo en este acto. En ";
-            Texto7 = Texto7 + "la ciudad de Resistencia Provincia del Chaco Fecha";
-            Texto7 = Texto7.Replace("Fecha", GetTextoFecha());
-            string Texto8 = "A partir del día de la fecha, el comprador acepta en forma exclusiva, la responsabilidad civil y ";
-            Texto8 = Texto8 + "criminalmente de todas las consecuencias derivadas del uso, posesión y tenencia del vehículo, haciéndose ";
-            Texto8 = Texto8 + "además cargo de los gravámenes que pudiesen pesar sobre el mismo a partir de este momento en adelante.";
-
-            string sql = "delete from reporte";
-            Clases.cDb.ExecutarNonQuery(sql);
-            sql = "Insert into reporte(Parte1,Parte2,Parte3,Parte4,Parte6,Parte7,Parte8) values (" + "'" + Texto1 + "'";
-            sql = sql + "," + "'" + texto2 +"'";
-            sql = sql + "," + "'" + texto3 + "'";
-            sql = sql + "," + "'" + Texto4 + "'";
-            sql = sql + "," + "'" + texto6 + "'";
-            sql = sql + "," + "'" + Texto7  + "'";
-            sql = sql + "," + "'" + Texto8 + "'";
-            sql = sql + ")";
-            Clases.cDb.ExecutarNonQuery(sql);
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -583,13 +545,16 @@ namespace Concesionaria
             cReporte reporte = new Clases.cReporte();
             int Orden = 1;
             string Cliente = txtNombre.Text;
-            string Parte1 = "";
-            Parte1 = "Conste por el presente que la Concesionaria GMotors, ";
-            Parte1 = Parte1 + "Domiciliado en Av.Amancio Alcorta 50, Boulogne, San Isidro, Vende ";
+            string Parte1 = "", Parte2 = "", Parte3 = "", Parte4 = "";
+            
+            Parte1 = "Isidro, Vende ";
             Parte1 = Parte1 + "y Transfiere al Señor/a xxx ";
             Parte1 = Parte1.Replace("xxx", Cliente);
+            Parte2 = "domiciliado es " + txtDireccion.Text;
+            Parte3 = "Marca  " + txtMarca.Text + "       Modelo " + txtModelo.Text + "    Año " + txtAnio.Text;
+            Parte4 = "Chasis " + txtChasis.Text +"       Motor " + txtMotor.Text + "      Patente " + txtPatente.Text;
             reporte.Borrar();
-            reporte.Insertar(Orden, Parte1, "", "", "", "", "", "", "", "", "");
+            reporte.Insertar(Orden, Parte1, Parte2 , Parte3, Parte4, "", "", "", "", "", "");
             FrmBoletoGMotor frm = new FrmBoletoGMotor();
             frm.Show();
 

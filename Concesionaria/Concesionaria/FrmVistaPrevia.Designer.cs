@@ -32,12 +32,6 @@
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtTarjetaAzul = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtGastosTransferencia = new System.Windows.Forms.TextBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -81,10 +75,17 @@
             this.txtFirmasyForm = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtVerificacion = new System.Windows.Forms.TextBox();
-            this.txtAuto = new System.Windows.Forms.TextBox();
+            this.txtMarca = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtChasis = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtMotor = new System.Windows.Forms.TextBox();
+            this.txtAnio = new System.Windows.Forms.TextBox();
+            this.txtPatente = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaGastos)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -93,10 +94,20 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtPatente);
+            this.groupBox1.Controls.Add(this.txtAnio);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.txtMotor);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtChasis);
+            this.groupBox1.Controls.Add(this.txtMarca);
+            this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Controls.Add(this.txtModelo);
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtFecha);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.txtDireccion);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtDni);
@@ -106,7 +117,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(458, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(503, 162);
+            this.groupBox1.Size = new System.Drawing.Size(503, 191);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Comprador";
@@ -114,14 +125,14 @@
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(360, 127);
+            this.txtFecha.Location = new System.Drawing.Point(330, 94);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(137, 23);
             this.txtFecha.TabIndex = 16;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(101, 127);
+            this.txtTelefono.Location = new System.Drawing.Point(101, 98);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(159, 23);
             this.txtTelefono.TabIndex = 12;
@@ -129,72 +140,16 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 127);
+            this.label6.Location = new System.Drawing.Point(27, 104);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 17);
             this.label6.TabIndex = 11;
             this.label6.Text = "Tel.";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtTarjetaAzul);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.txtGastosTransferencia);
-            this.groupBox3.Controls.Add(this.txtPrecio);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(299, 22);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(198, 53);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Importe";
-            this.groupBox3.Visible = false;
-            // 
-            // txtTarjetaAzul
-            // 
-            this.txtTarjetaAzul.Location = new System.Drawing.Point(128, 65);
-            this.txtTarjetaAzul.Name = "txtTarjetaAzul";
-            this.txtTarjetaAzul.Size = new System.Drawing.Size(159, 23);
-            this.txtTarjetaAzul.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 65);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 17);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Tarjeta azul";
-            // 
-            // txtGastosTransferencia
-            // 
-            this.txtGastosTransferencia.Location = new System.Drawing.Point(128, 36);
-            this.txtGastosTransferencia.Name = "txtGastosTransferencia";
-            this.txtGastosTransferencia.Size = new System.Drawing.Size(159, 23);
-            this.txtGastosTransferencia.TabIndex = 14;
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(125, 94);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(390, 23);
-            this.txtPrecio.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 94);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 17);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Precio";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 36);
+            this.label7.Location = new System.Drawing.Point(98, 10);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 17);
             this.label7.TabIndex = 13;
@@ -202,7 +157,7 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(101, 98);
+            this.txtDireccion.Location = new System.Drawing.Point(101, 65);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(390, 23);
             this.txtDireccion.TabIndex = 5;
@@ -210,7 +165,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 98);
+            this.label3.Location = new System.Drawing.Point(27, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 17);
             this.label3.TabIndex = 4;
@@ -218,7 +173,7 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(101, 69);
+            this.txtDni.Location = new System.Drawing.Point(321, 39);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(137, 23);
             this.txtDni.TabIndex = 3;
@@ -226,7 +181,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 64);
+            this.label2.Location = new System.Drawing.Point(288, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 17);
             this.label2.TabIndex = 2;
@@ -236,7 +191,7 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(101, 36);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(199, 23);
+            this.txtNombre.Size = new System.Drawing.Size(181, 23);
             this.txtNombre.TabIndex = 1;
             // 
             // label1
@@ -423,8 +378,6 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.txtComprador);
-            this.groupBox5.Controls.Add(this.txtExTitular);
             this.groupBox5.Controls.Add(this.label21);
             this.groupBox5.Controls.Add(this.txtMultas);
             this.groupBox5.Controls.Add(this.label20);
@@ -451,17 +404,17 @@
             // 
             // txtComprador
             // 
-            this.txtComprador.Location = new System.Drawing.Point(754, 3);
+            this.txtComprador.Location = new System.Drawing.Point(24, 177);
             this.txtComprador.Name = "txtComprador";
-            this.txtComprador.Size = new System.Drawing.Size(199, 23);
+            this.txtComprador.Size = new System.Drawing.Size(199, 20);
             this.txtComprador.TabIndex = 50;
             this.txtComprador.Visible = false;
             // 
             // txtExTitular
             // 
-            this.txtExTitular.Location = new System.Drawing.Point(535, 3);
+            this.txtExTitular.Location = new System.Drawing.Point(253, 178);
             this.txtExTitular.Name = "txtExTitular";
-            this.txtExTitular.Size = new System.Drawing.Size(199, 23);
+            this.txtExTitular.Size = new System.Drawing.Size(199, 20);
             this.txtExTitular.TabIndex = 49;
             this.txtExTitular.Visible = false;
             // 
@@ -591,23 +544,97 @@
             this.txtVerificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVerificacion_KeyPress);
             this.txtVerificacion.Leave += new System.EventHandler(this.txtVerificacion_Leave);
             // 
-            // txtAuto
+            // txtMarca
             // 
-            this.txtAuto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtAuto.Location = new System.Drawing.Point(559, 178);
-            this.txtAuto.Multiline = true;
-            this.txtAuto.Name = "txtAuto";
-            this.txtAuto.Size = new System.Drawing.Size(406, 26);
-            this.txtAuto.TabIndex = 47;
+            this.txtMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMarca.Location = new System.Drawing.Point(101, 127);
+            this.txtMarca.Multiline = true;
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(155, 26);
+            this.txtMarca.TabIndex = 47;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(482, 178);
+            this.label12.Location = new System.Drawing.Point(26, 127);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 13);
+            this.label12.Size = new System.Drawing.Size(47, 17);
             this.label12.TabIndex = 16;
-            this.label12.Text = "Vehículo";
+            this.label12.Text = "Marca";
+            // 
+            // txtModelo
+            // 
+            this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtModelo.Location = new System.Drawing.Point(330, 121);
+            this.txtModelo.Multiline = true;
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(128, 26);
+            this.txtModelo.TabIndex = 48;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(262, 130);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(54, 17);
+            this.label22.TabIndex = 49;
+            this.label22.Text = "Modelo";
+            // 
+            // txtChasis
+            // 
+            this.txtChasis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtChasis.Location = new System.Drawing.Point(101, 156);
+            this.txtChasis.Multiline = true;
+            this.txtChasis.Name = "txtChasis";
+            this.txtChasis.Size = new System.Drawing.Size(143, 26);
+            this.txtChasis.TabIndex = 51;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 155);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 17);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Chasis";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(262, 155);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 17);
+            this.label8.TabIndex = 54;
+            this.label8.Text = "Motor";
+            // 
+            // txtMotor
+            // 
+            this.txtMotor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMotor.Location = new System.Drawing.Point(324, 155);
+            this.txtMotor.Multiline = true;
+            this.txtMotor.Name = "txtMotor";
+            this.txtMotor.Size = new System.Drawing.Size(143, 26);
+            this.txtMotor.TabIndex = 53;
+            // 
+            // txtAnio
+            // 
+            this.txtAnio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtAnio.Location = new System.Drawing.Point(180, 82);
+            this.txtAnio.Multiline = true;
+            this.txtAnio.Name = "txtAnio";
+            this.txtAnio.Size = new System.Drawing.Size(33, 26);
+            this.txtAnio.TabIndex = 55;
+            this.txtAnio.Visible = false;
+            // 
+            // txtPatente
+            // 
+            this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPatente.Location = new System.Drawing.Point(284, 98);
+            this.txtPatente.Multiline = true;
+            this.txtPatente.Name = "txtPatente";
+            this.txtPatente.Size = new System.Drawing.Size(33, 26);
+            this.txtPatente.TabIndex = 56;
+            this.txtPatente.Visible = false;
             // 
             // FrmVistaPrevia
             // 
@@ -615,8 +642,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(985, 590);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtAuto);
+            this.Controls.Add(this.txtComprador);
+            this.Controls.Add(this.txtExTitular);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -629,8 +656,6 @@
             this.Load += new System.EventHandler(this.FrmVistaPrevia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaGastos)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -653,18 +678,12 @@
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnImprimir;
-        private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtGastosTransferencia;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView GrillaGastos;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtTarjetaAzul;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtDocumentos;
@@ -695,10 +714,18 @@
         private System.Windows.Forms.TextBox txtTextoSenia;
         private System.Windows.Forms.TextBox txtFormaPago;
         private System.Windows.Forms.TextBox txtTextoDocumento;
-        private System.Windows.Forms.TextBox txtAuto;
+        private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtExTitular;
         private System.Windows.Forms.TextBox txtComprador;
         private System.Windows.Forms.TextBox txtFecha;
+        private System.Windows.Forms.TextBox txtModelo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtMotor;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtChasis;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtPatente;
+        private System.Windows.Forms.TextBox txtAnio;
     }
 }
