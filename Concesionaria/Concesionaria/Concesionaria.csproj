@@ -1134,6 +1134,7 @@
     <Content Include="Iconos\Borrar.ico" />
     <Content Include="Imagen\LogoGMotor.png" />
     <Content Include="Imagen\LogoGMotor2.png" />
+    <Content Include="Imagen\pie.png" />
     <None Include="Iconos\cal.ico" />
     <Content Include="Iconos\cancel.ico" />
     <Content Include="Iconos\CAR3.bmp" />

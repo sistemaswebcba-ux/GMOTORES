@@ -96,7 +96,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(643, 224);
+            this.groupBox1.Size = new System.Drawing.Size(655, 224);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Comprador";
@@ -108,13 +108,13 @@
             this.txtPatente.Location = new System.Drawing.Point(101, 185);
             this.txtPatente.Multiline = true;
             this.txtPatente.Name = "txtPatente";
-            this.txtPatente.Size = new System.Drawing.Size(138, 26);
+            this.txtPatente.Size = new System.Drawing.Size(159, 26);
             this.txtPatente.TabIndex = 56;
             // 
             // txtAnio
             // 
             this.txtAnio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtAnio.Location = new System.Drawing.Point(330, 188);
+            this.txtAnio.Location = new System.Drawing.Point(348, 185);
             this.txtAnio.Multiline = true;
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.Size = new System.Drawing.Size(137, 26);
@@ -123,7 +123,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(262, 155);
+            this.label8.Location = new System.Drawing.Point(293, 152);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 17);
             this.label8.TabIndex = 54;
@@ -132,7 +132,7 @@
             // txtMotor
             // 
             this.txtMotor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMotor.Location = new System.Drawing.Point(330, 152);
+            this.txtMotor.Location = new System.Drawing.Point(348, 149);
             this.txtMotor.Multiline = true;
             this.txtMotor.Name = "txtMotor";
             this.txtMotor.Size = new System.Drawing.Size(136, 26);
@@ -150,16 +150,16 @@
             // txtChasis
             // 
             this.txtChasis.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtChasis.Location = new System.Drawing.Point(101, 156);
+            this.txtChasis.Location = new System.Drawing.Point(101, 155);
             this.txtChasis.Multiline = true;
             this.txtChasis.Name = "txtChasis";
-            this.txtChasis.Size = new System.Drawing.Size(143, 26);
+            this.txtChasis.Size = new System.Drawing.Size(159, 26);
             this.txtChasis.TabIndex = 51;
             // 
             // txtMarca
             // 
             this.txtMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtMarca.Location = new System.Drawing.Point(101, 127);
+            this.txtMarca.Location = new System.Drawing.Point(101, 124);
             this.txtMarca.Multiline = true;
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(155, 26);
@@ -168,7 +168,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(262, 124);
+            this.label22.Location = new System.Drawing.Point(288, 121);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(54, 17);
             this.label22.TabIndex = 49;
@@ -177,7 +177,7 @@
             // txtModelo
             // 
             this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtModelo.Location = new System.Drawing.Point(330, 121);
+            this.txtModelo.Location = new System.Drawing.Point(348, 118);
             this.txtModelo.Multiline = true;
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(136, 26);
@@ -194,7 +194,7 @@
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(330, 94);
+            this.txtFecha.Location = new System.Drawing.Point(348, 91);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(137, 23);
             this.txtFecha.TabIndex = 16;
@@ -219,7 +219,7 @@
             // 
             this.txtDireccion.Location = new System.Drawing.Point(101, 65);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(365, 23);
+            this.txtDireccion.Size = new System.Drawing.Size(383, 23);
             this.txtDireccion.TabIndex = 5;
             // 
             // label3
@@ -233,7 +233,7 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(321, 39);
+            this.txtDni.Location = new System.Drawing.Point(348, 36);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(137, 23);
             this.txtDni.TabIndex = 3;
@@ -241,7 +241,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(288, 42);
+            this.label2.Location = new System.Drawing.Point(293, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 17);
             this.label2.TabIndex = 2;
@@ -265,7 +265,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(96, 199);
+            this.btnImprimir.Location = new System.Drawing.Point(120, 176);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 36);
             this.btnImprimir.TabIndex = 6;
@@ -293,7 +293,7 @@
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(12, 242);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(758, 241);
+            this.groupBox4.Size = new System.Drawing.Size(666, 234);
             this.groupBox4.TabIndex = 44;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Forma de pago";
@@ -386,7 +386,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(273, 194);
+            this.label4.Location = new System.Drawing.Point(293, 188);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 17);
             this.label4.TabIndex = 57;
@@ -429,7 +429,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(679, 590);
+            this.ClientSize = new System.Drawing.Size(674, 491);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
