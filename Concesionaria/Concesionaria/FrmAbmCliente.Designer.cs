@@ -40,7 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.btnAgregarCiudad2 = new System.Windows.Forms.Button();
-            this.cmbCiudad2 = new System.Windows.Forms.ComboBox();
+            this.cmb_CodCiudad = new System.Windows.Forms.ComboBox();
             this.btnAgregarProvincia2 = new System.Windows.Forms.Button();
             this.cmbProvincia2 = new System.Windows.Forms.ComboBox();
             this.txtM_Celular = new System.Windows.Forms.MaskedTextBox();
@@ -89,7 +89,7 @@
             this.Grupo.Controls.Add(this.label1);
             this.Grupo.Controls.Add(this.label38);
             this.Grupo.Controls.Add(this.btnAgregarCiudad2);
-            this.Grupo.Controls.Add(this.cmbCiudad2);
+            this.Grupo.Controls.Add(this.cmb_CodCiudad);
             this.Grupo.Controls.Add(this.btnAgregarProvincia2);
             this.Grupo.Controls.Add(this.cmbProvincia2);
             this.Grupo.Controls.Add(this.txtM_Celular);
@@ -209,15 +209,15 @@
             this.btnAgregarCiudad2.UseVisualStyleBackColor = true;
             this.btnAgregarCiudad2.Click += new System.EventHandler(this.btnAgregarCiudad2_Click);
             // 
-            // cmbCiudad2
+            // cmb_CodCiudad
             // 
-            this.cmbCiudad2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCiudad2.FormattingEnabled = true;
-            this.cmbCiudad2.Location = new System.Drawing.Point(492, 145);
-            this.cmbCiudad2.Name = "cmbCiudad2";
-            this.cmbCiudad2.Size = new System.Drawing.Size(246, 24);
-            this.cmbCiudad2.TabIndex = 38;
-            this.cmbCiudad2.SelectedIndexChanged += new System.EventHandler(this.cmbCiudad2_SelectedIndexChanged);
+            this.cmb_CodCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_CodCiudad.FormattingEnabled = true;
+            this.cmb_CodCiudad.Location = new System.Drawing.Point(492, 145);
+            this.cmb_CodCiudad.Name = "cmb_CodCiudad";
+            this.cmb_CodCiudad.Size = new System.Drawing.Size(246, 24);
+            this.cmb_CodCiudad.TabIndex = 38;
+            this.cmb_CodCiudad.SelectedIndexChanged += new System.EventHandler(this.cmbCiudad2_SelectedIndexChanged);
             // 
             // btnAgregarProvincia2
             // 
@@ -572,7 +572,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button btnAgregarCiudad2;
-        private System.Windows.Forms.ComboBox cmbCiudad2;
+        private System.Windows.Forms.ComboBox cmb_CodCiudad;
         private System.Windows.Forms.Button btnAgregarProvincia2;
         private System.Windows.Forms.ComboBox cmbProvincia2;
         private System.Windows.Forms.TextBox txt_RutaImagen;

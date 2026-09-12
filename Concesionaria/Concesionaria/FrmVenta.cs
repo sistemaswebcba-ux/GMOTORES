@@ -3191,12 +3191,75 @@ namespace Concesionaria
                 txtCelular.Text = trdo.Rows[0]["Celular"].ToString();
                 txtCalle.Text = trdo.Rows[0]["Calle"].ToString();
                 txtAltura.Text = trdo.Rows[0]["Numero"].ToString();
+                int b = 0;
                 if (trdo.Rows[0]["CodBarrio"].ToString() != "")
+                {
                     CmbBarrio.SelectedValue = trdo.Rows[0]["CodBarrio"].ToString();
+                    b = 1;
+                    Int32 CodBarrio = Convert.ToInt32(trdo.Rows[0]["CodBarrio"].ToString());
+                    CargarCiudadxBarrio(CodBarrio);
+                }
+
+                if (b ==0)
+                {
+                    // no tiene barrio 
+                    if (trdo.Rows[0]["CodCiudad"].ToString() != "")
+                    {
+                        Int32 CodCiudad = Convert.ToInt32(trdo.Rows[0]["CodCiudad"].ToString());
+                        CargarCiudadProvincia(CodCiudad);
+                    }
+                }
+                    
                 txtCodCLiente.Text = trdo.Rows[0]["CodCliente"].ToString();
             }
             else
                 LimpiarCliente();
+        }
+
+        private void CargarCiudadxBarrio(Int32 CodBarrio)
+        {
+            if (CodBarrio > 0)
+            {
+                cBarrio barrio = new cBarrio();
+                DataTable tbBarrio = barrio.GetBarrioxId(CodBarrio);
+                if (tbBarrio.Rows.Count > 0)
+                {
+                    if (tbBarrio.Rows[0]["CodCiudad"].ToString() != "")
+                    {
+                        Int32 CodCiudad = Convert.ToInt32(tbBarrio.Rows[0]["CodCiudad"].ToString());
+                        cCiudad objCiudad = new cCiudad();
+                        DataTable tbCiudad = objCiudad.GetCiudadxId(CodCiudad);
+                        if (tbCiudad.Rows.Count > 0)
+                        {
+                            if (tbCiudad.Rows[0]["CodProvincia"].ToString() != "")
+                            {   
+                                Int32 CodProvincia = Convert.ToInt32(tbCiudad.Rows[0]["CodProvincia"].ToString());
+                                cmbProvincia2.SelectedValue = CodProvincia.ToString();
+                                DataTable trCiudad = objCiudad.GetCiudadxCodProvincia(CodProvincia);
+                                cFunciones fun = new cFunciones();
+                                fun.LlenarComboDatatable(CmbCiudadCliente2, trCiudad, "Nombre", "CodCiudad");
+                                CmbCiudadCliente2.SelectedValue = CodCiudad.ToString();
+                                CmbBarrio.SelectedValue = CodBarrio.ToString();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CargarCiudadProvincia(Int32 CodCiudad)
+        {
+            cFunciones fun = new cFunciones();
+            cCiudad ciudad = new Clases.cCiudad();
+            DataTable trdo = ciudad.GetCiudadxId(CodCiudad);
+            if (trdo.Rows.Count > 0)
+            {
+                Int32 CodProvincia = Convert.ToInt32(trdo.Rows[0]["CodProvincia"].ToString());
+                cmbProvincia2.SelectedValue = CodProvincia;
+                DataTable tbCiuddad = ciudad.GetCiudadxCodProvincia(CodProvincia);
+                fun.LlenarComboDatatable(CmbCiudadCliente2, tbCiuddad, "Nombre", "CodCiudad");
+                CmbCiudadCliente2.SelectedValue = CodCiudad;
+            }
         }
 
         private void BuscarGastosTransferencia(Int32 CodVenta)

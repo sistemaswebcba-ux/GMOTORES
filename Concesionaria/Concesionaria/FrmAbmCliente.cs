@@ -65,7 +65,7 @@ namespace Concesionaria
         private void FrmAbmCliente_Load(object sender, EventArgs e)
         {
             Botonera(1);
-            Grupo.Enabled = true;
+            Grupo.Enabled = false;
         }
 
         private void Botonera(int Jugada)
@@ -151,14 +151,26 @@ namespace Concesionaria
                     {
                         CargarImaagen();
                     }
+                    int b = 0; 
                     cCliente cli = new cCliente();
                     DataTable tbCLi = cli.GetClientesxCodigo(Convert.ToInt32(txtCodCLiente.Text));
                     if (tbCLi.Rows.Count >0)
                     {
                         if (tbCLi.Rows[0]["CodBarrio"].ToString ()!="")
                         {
+                            b = 1;
                             Int32 CodBarrio = Convert.ToInt32(tbCLi.Rows[0]["CodBarrio"].ToString());
                             CargarCiudadxBarrio(CodBarrio);
+                        }
+
+                        if (b ==0)
+                        {
+                            // no tiene barrio 
+                            if (tbCLi.Rows[0]["CodCiudad"].ToString() != "")
+                            {
+                                Int32 CodCiudad = Convert.ToInt32(tbCLi.Rows[0]["CodCiudad"].ToString());
+                                CargarCiudadProvincia(CodCiudad);
+                            }
                         }
 
                     }
@@ -174,7 +186,7 @@ namespace Concesionaria
                 switch (Principal.NombreTablaSecundario)
                 {
                     case "Barrio":                  
-                        Int32 CodCity = Convert.ToInt32(cmbCiudad2.SelectedValue);
+                        Int32 CodCity = Convert.ToInt32(cmb_CodCiudad.SelectedValue);
                         Int32 CodBarrio = Convert.ToInt32(Principal.CampoIdSecundarioGenerado);
                         cBarrio obj = new cBarrio();
                         obj.ActualizarCiudad(CodBarrio, CodCity);
@@ -194,8 +206,8 @@ namespace Concesionaria
                          cCiudad city = new Clases.cCiudad();
                          city.ActualizarProvincia(CodCiudad, CodProvincia);
                          DataTable tbCiudad = city.GetCiudadxCodProvincia(CodProvincia);
-                         fun.LlenarComboDatatable(cmbCiudad2, tbCiudad, "Nombre", "CodCiudad");
-                         cmbCiudad2.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                         fun.LlenarComboDatatable(cmb_CodCiudad, tbCiudad, "Nombre", "CodCiudad");
+                         cmb_CodCiudad.SelectedValue = Principal.CampoIdSecundarioGenerado;
                         break;
                 }
             }
@@ -246,8 +258,8 @@ namespace Concesionaria
                   txtCodCLiente.Text = "";  
                 if (cmbProvincia2.Items.Count >0)
                     cmbProvincia2.SelectedIndex = 0;
-                if (cmbCiudad2.Items.Count > 0)
-                    cmbCiudad2.SelectedIndex = 0;
+                if (cmb_CodCiudad.Items.Count > 0)
+                    cmb_CodCiudad.SelectedIndex = 0;
             }
         }
 
@@ -364,19 +376,19 @@ namespace Concesionaria
             cCiudad ciudad = new Clases.cCiudad();
             DataTable trdo = ciudad.GetCiudadxCodProvincia(CodProvincia);
             cFunciones fun = new cFunciones();
-            fun.LlenarComboDatatable(cmbCiudad2, trdo, "Nombre", "CodCiudad");
+            fun.LlenarComboDatatable(cmb_CodCiudad, trdo, "Nombre", "CodCiudad");
         }
 
         private void cmbCiudad2_SelectedIndexChanged(object sender, EventArgs e)
         {
              
-            if (cmbCiudad2.SelectedIndex < 1)
+            if (cmb_CodCiudad.SelectedIndex < 1)
             {
                 // MessageBox.Show("Seleccione una ciudad");
                 return;
             }
              
-            Int32 CodCiudad = Convert.ToInt32(cmbCiudad2.SelectedValue);
+            Int32 CodCiudad = Convert.ToInt32(cmb_CodCiudad.SelectedValue);
             cBarrio barrio = new cBarrio();
             DataTable tbBarrio = barrio.GetBarrioxCiudad(CodCiudad);
             cFunciones fun = new cFunciones();
@@ -404,13 +416,28 @@ namespace Concesionaria
                                 cmbProvincia2.SelectedValue = CodProvincia.ToString();
                                 DataTable trCiudad = objCiudad.GetCiudadxCodProvincia(CodProvincia);
                                 cFunciones fun = new cFunciones();
-                                fun.LlenarComboDatatable(cmbCiudad2, trCiudad, "Nombre", "CodCiudad");
-                                cmbCiudad2.SelectedValue = CodCiudad.ToString();
+                                fun.LlenarComboDatatable(cmb_CodCiudad, trCiudad, "Nombre", "CodCiudad");
+                                cmb_CodCiudad.SelectedValue = CodCiudad.ToString();
                                 cmb_CodBarrio.SelectedValue = CodBarrio.ToString();
                             }
                         }
                     }
                 }
+            }
+        }
+
+        private void CargarCiudadProvincia(Int32 CodCiudad)
+        {
+            cFunciones fun = new cFunciones();
+            cCiudad ciudad = new Clases.cCiudad();
+            DataTable trdo = ciudad.GetCiudadxId(CodCiudad);
+            if (trdo.Rows.Count >0)
+            {
+                Int32 CodProvincia = Convert.ToInt32(trdo.Rows[0]["CodProvincia"].ToString());
+                cmbProvincia2.SelectedValue = CodProvincia;
+                DataTable tbCiuddad = ciudad.GetCiudadxCodProvincia(CodProvincia);
+                fun.LlenarComboDatatable(cmb_CodCiudad, tbCiuddad, "Nombre","CodCiudad");
+                cmb_CodCiudad.SelectedValue = CodCiudad;
             }
         }
 
