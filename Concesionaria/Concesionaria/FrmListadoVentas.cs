@@ -222,7 +222,15 @@ namespace Concesionaria
 
         private void btnReporte2_Click(object sender, EventArgs e)
         {
-            
+            if (Grilla.CurrentRow.DefaultCellStyle.BackColor == Color.LightGray)
+            {
+                string CodPreVenta = Grilla.CurrentRow.Cells[0].Value.ToString();
+                Principal.CodigoPrincipalAbm = null;
+                Principal.CodigoSenia = CodPreVenta;
+                FrmVistaPreviaPreVenta frm = new FrmVistaPreviaPreVenta();
+                frm.ShowDialog();
+            }
+            /*
             Clases.cDb.ExecutarNonQuery("delete from ReporteAuto");
             string sql = "";
             for (int i = 0; i < Grilla.Rows.Count - 1; i++)
@@ -248,7 +256,8 @@ namespace Concesionaria
             }
             FrmReporteVenta frm = new FrmReporteVenta();
             frm.Show();
-            
+            */
+
         }
 
         private string GetCliente(Int32 CodCLiente, string Campo)

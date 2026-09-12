@@ -3756,19 +3756,6 @@ namespace Concesionaria
             }
 
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (txtFecha.Text == "")
-            {
-                MessageBox.Show("Debe ingresar una fecha para continuar.", Clases.cMensaje.Mensaje());
-                return false;
-            }
-
-            if (fun.ValidarFecha(txtFecha.Text) == false)
-            {
-                MessageBox.Show("La fecha ingresada es incorrecta.", Clases.cMensaje.Mensaje());
-                return false;
-            }
-
-
             
             if (CmbVendedor.SelectedIndex < 1)
             {
@@ -3939,7 +3926,7 @@ namespace Concesionaria
         private string GetSqlPreVenta()
         {
             string sql = "";
-            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            DateTime Fecha = dpFecha.Value;
             Int32 CodAutoVendido = Convert.ToInt32(txtCodAuto.Text);
             Int32? CodAutoPartePago = null;
             Int32 CodStock = Convert.ToInt32(txtCodStock.Text);

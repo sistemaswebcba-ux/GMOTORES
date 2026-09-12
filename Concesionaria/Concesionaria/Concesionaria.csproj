@@ -750,6 +750,12 @@
     <Compile Include="FrmVistaPrevia.Designer.cs">
       <DependentUpon>FrmVistaPrevia.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVistaPreviaPreVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVistaPreviaPreVenta.Designer.cs">
+      <DependentUpon>FrmVistaPreviaPreVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1060,6 +1066,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVistaPrevia.resx">
       <DependentUpon>FrmVistaPrevia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVistaPreviaPreVenta.resx">
+      <DependentUpon>FrmVistaPreviaPreVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
