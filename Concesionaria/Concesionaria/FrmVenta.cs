@@ -1166,6 +1166,7 @@ namespace Concesionaria
             string Calle = txtCalle.Text;
             string Altura = txtAltura.Text;
             Int32? CodBarrio = null;
+            Int32? CodCiudad = null;
             string Observacion = txtObservacion.Text;
             string RutaImagen = txtRutaImagenCliente.Text;
             DateTime? FechaNacimiento = null;
@@ -1177,11 +1178,14 @@ namespace Concesionaria
             if (CmbBarrio.SelectedIndex > 0)
                 CodBarrio = Convert.ToInt32(CmbBarrio.SelectedValue);
 
+            if (CmbCiudadCliente2.SelectedIndex > 0)
+                CodCiudad = Convert.ToInt32(CmbCiudadCliente2.SelectedValue);
+
             if (Nuevo == true)
             {
                 GrabaClienteNuevo = true;
                 sql = cliente.GetSqlInsertarCliente(CodTipoDoc, NroDocumento, Nombre,
-                      Apellido, Telefono, Celular, Calle, Altura, CodBarrio, Observacion, RutaImagen, FechaNacimiento);
+                      Apellido, Telefono, Celular, Calle, Altura, CodBarrio, Observacion, RutaImagen, FechaNacimiento,CodCiudad);
                
             }
             else
@@ -1189,7 +1193,7 @@ namespace Concesionaria
                 GrabaClienteNuevo = false;
                 sql = cliente.GetSqlModificarCliente(Convert.ToInt32(txtCodCLiente.Text), CodTipoDoc, NroDocumento, Nombre,
                       Apellido, Telefono, Celular,
-                      Calle, Altura, CodBarrio, Observacion, RutaImagen);
+                      Calle, Altura, CodBarrio, Observacion, RutaImagen,CodCiudad);
             }
             return sql;
         }

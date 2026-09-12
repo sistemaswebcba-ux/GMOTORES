@@ -70,7 +70,10 @@ namespace Concesionaria
              
                 Int32 CodStock = Convert.ToInt32(trdo.Rows[0]["CodStock"].ToString());
                 ExTitular = GetExTitular(CodStock);
-              
+                if (trdo.Rows[0]["ImporteAutoPartePago"].ToString ()!="")
+                {
+                    txtImporteVehiculo.Text = trdo.Rows[0]["ImporteAutoPartePago"].ToString();
+                }
                 DataTable tcli = cliente.GetClientesxCodigo(CodCliente);
                 if (tcli.Rows.Count > 0)
                 {
@@ -82,9 +85,21 @@ namespace Concesionaria
                     txtTelefono.Text = tcli.Rows[0]["Telefono"].ToString();
                     txtNombre.Text = nombre;
                     txtDni.Text = tcli.Rows[0]["NroDocumento"].ToString();
+                    int b = 0;
                     if (tcli.Rows[0]["CodBarrio"].ToString ()!="")
                     {
-                        GetCiudad(Convert.ToInt32(tcli.Rows[0]["CodBarrio"].ToString()));
+                        b = 1;
+                        GetCiudadxCodBarrio(Convert.ToInt32(tcli.Rows[0]["CodBarrio"].ToString()));
+                    }
+
+                    if (b ==0)
+                    {
+                        if (tcli.Rows[0]["CodCiudad"].ToString() != "")
+                        {
+                            //tiene cargada solo la ciudad y no el barrio  
+                            Int32 CodCiudad = Convert.ToInt32(tcli.Rows[0]["CodCiudad"].ToString());
+                            GetCiudadxCodigo(CodCiudad);
+                        }
                     }
                 }
             }
@@ -111,6 +126,11 @@ namespace Concesionaria
                 txtEfectivo.Text = fun.FormatoEnteroMiles(txtEfectivo.Text);
             }
 
+            if (txtImporteVehiculo.Text !="")
+            {
+                txtImporteVehiculo.Text = fun.SepararDecimales(txtImporteVehiculo.Text);
+            }
+
             if (txtDocumentos.Text != "0" && txtDocumentos.Text != "")
             {
                 txtDocumentos.Text = fun.SepararDecimales(txtDocumentos.Text);
@@ -125,18 +145,38 @@ namespace Concesionaria
                 string Importe = trdoPrenda.Rows[0]["Importe"].ToString();
                 Importe = fun.SepararDecimales(Importe);
                 Importe = fun.FormatoEnteroMiles(Importe);
-                txtImportePrenda.Text = Importe;
+                txtImporteVehiculo.Text = Importe;
             }
         }
 
-        private void GetCiudad(Int32 CodBarrio)
+        private void GetCiudadxCodBarrio(Int32 CodBarrio)
         {
             cCiudad ciudad = new cCiudad();
             DataTable trdo = ciudad.GetCiudadxCodBarrio(CodBarrio);
             if (trdo.Rows.Count >0)
             {
                 string Nombre = trdo.Rows[0]["Nombre"].ToString();
-                txtDireccion.Text = txtDireccion.Text + " " + Nombre; 
+                txtDireccion.Text = txtDireccion.Text + " " + Nombre;
+                //BSUCO LA PROVINCIA
+                Int32 CodProvincia = Convert.ToInt32(trdo.Rows[0]["CodProvincia"].ToString());
+                cProvincia Prov = new Clases.cProvincia();
+                string nombreProvincia = Prov.GetNombreProvincia(CodProvincia);
+                txtDireccion.Text  = txtDireccion.Text  + " " + nombreProvincia;
+            }
+        }
+
+        private void GetCiudadxCodigo(Int32 CodCiudad)
+        {
+            cCiudad ciudad = new Clases.cCiudad();
+            DataTable trdo = ciudad.GetCiudadxId(CodCiudad);
+            if (trdo.Rows.Count >0)
+            {
+                string Ciudad = trdo.Rows[0]["Nombre"].ToString();
+                txtDireccion.Text = txtDireccion.Text + " " + Ciudad;
+                Int32 CodProvincia = Convert.ToInt32(trdo.Rows[0]["CodProvincia"].ToString());
+                cProvincia prov = new cProvincia();
+                string Provincia = prov.GetNombreProvincia(CodProvincia);
+                txtDireccion.Text = txtDireccion.Text + " " + Provincia;
             }
         }
 
@@ -382,6 +422,7 @@ namespace Concesionaria
             cReporte reporte = new Clases.cReporte();
             int Orden = 1;
             string Cliente = txtNombre.Text;
+            Cliente = Cliente + " Dni " + txtDni.Text;
             string Parte1 = "", Parte2 = "", Parte3 = "", Parte4 = "";
             string Parte5 = "", Parte6 = "", Parte7 = "", Parte8 = "";
             Parte1 = "Isidro, Vende ";
@@ -397,6 +438,12 @@ namespace Concesionaria
             if (txtEfectivo.Text !="")
             {
                 Parte7 = Parte7 + " Efectivo " + txtEfectivo.Text + "(" + txtTextoEfectivo.Text + ")";
+            }
+
+            if (txtImporteVehiculo.Text !="" && txtImporteVehiculo.Text !="0")
+            {
+                Parte7 = Parte7 + " Vehículos en parte de pago " + txtImporteVehiculo.Text;
+                Parte7 = Parte7 + " (" + txtTextoVehiculo.Text + ")";
             }
             Parte8 = "en este acto, sirviendo el presente de suficiente recibo; y el saldo de $ ";
             reporte.Borrar();

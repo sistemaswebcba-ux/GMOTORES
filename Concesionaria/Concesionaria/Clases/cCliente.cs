@@ -48,11 +48,11 @@ namespace Concesionaria.Clases
         public string  GetSqlInsertarCliente(Int32? CodTipoDoc, string NroDocumento,
             string Nombre, string Apellido, string Telefono, string Celular,
             string Calle, string Altura, Int32? CodBarrio, string Observacion,
-            string RutaImagen, DateTime? FechaNacimiento
+            string RutaImagen, DateTime? FechaNacimiento , Int32? CodCiudad
             )
         {
             string sql = "Insert into Cliente(CodTipoDoc,NroDocumento,Nombre,Apellido";
-            sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio,Observacion,RutaImagen,FechaNacimiento)";
+            sql = sql + ",Telefono,Celular, Calle,  Numero, CodBarrio,Observacion,RutaImagen,FechaNacimiento,CodCiudad )";
             sql = sql + "Values(";
             if (CodTipoDoc == null)
                 sql = sql + "null";
@@ -80,6 +80,12 @@ namespace Concesionaria.Clases
             {
                 sql = sql + ",null";
             }
+             
+            if (CodCiudad == null)
+                sql = sql + ",null";
+            else
+                sql = sql + "," + CodCiudad.ToString();
+
             sql = sql + ")";
             return sql;
         }
@@ -124,7 +130,7 @@ namespace Concesionaria.Clases
 
         public string GetSqlModificarCliente(Int32 CodCliente, Int32? CodTipoDoc, string NroDocumento,
             string Nombre, string Apellido, string Telefono, string Celular,
-            string Calle, string Numero, Int32? CodBarrio, string Observacion,string RutaImagen)
+            string Calle, string Numero, Int32? CodBarrio, string Observacion,string RutaImagen, Int32? CodCiudad)
         {
             string sql = "Update Cliente ";
 
@@ -145,6 +151,12 @@ namespace Concesionaria.Clases
                 sql = sql + ",CodBarrio =" + CodBarrio.ToString();
             sql = sql + ",Observacion=" + "'" + Observacion + "'";
             sql = sql + ",RutaImagen=" + "'" + RutaImagen + "'";
+             
+            if (CodCiudad == null)
+                sql = sql + ",CodCiudad =null";
+            else
+                sql = sql + ",CodCiudad =" + CodCiudad.ToString();
+
             sql = sql + " where CodCliente=" + CodCliente.ToString();
             return sql;
         }
