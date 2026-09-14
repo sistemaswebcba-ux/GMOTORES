@@ -15,8 +15,8 @@ namespace Concesionaria
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-              Application.Run(new FrmLogin());
-           //   Application.Run(new FrmListadoVentas());
+           //   Application.Run(new FrmLogin());
+              Application.Run(new FrmListadoVentas());
              
            //    Application.Run(new FrmBoletoGMotor());
              //   Application.Run(new FrmVistaPrevia ());

@@ -684,6 +684,12 @@
     <Compile Include="FrmReporteListaPrecio.Designer.cs">
       <DependentUpon>FrmReporteListaPrecio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporteSenia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteSenia.Designer.cs">
+      <DependentUpon>FrmReporteSenia.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1034,6 +1040,9 @@
     <EmbeddedResource Include="FrmReporteListaPrecio.resx">
       <DependentUpon>FrmReporteListaPrecio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteSenia.resx">
+      <DependentUpon>FrmReporteSenia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteVenta.resx">
       <DependentUpon>FrmReporteVenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -1086,6 +1095,7 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="ReporteListado.rdlc" />
     <EmbeddedResource Include="Reportes\BoletoGMotor.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteSenia.rdlc" />
     <EmbeddedResource Include="ReporteVentas.rdlc" />
     <None Include="app.config">
       <SubType>Designer</SubType>

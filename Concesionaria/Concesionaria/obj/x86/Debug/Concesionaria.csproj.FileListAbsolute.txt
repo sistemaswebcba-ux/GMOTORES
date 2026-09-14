@@ -367,3 +367,4 @@ D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\obj\x86\Debug\Rdl
 D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
 D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmBoletoGMotor.resources
 D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmVistaPreviaPreVenta.resources
+D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteSenia.resources

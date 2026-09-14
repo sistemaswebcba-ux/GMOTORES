@@ -19,15 +19,36 @@ namespace Concesionaria
 
         private void FrmVistaPreviaPreVenta_Load(object sender, EventArgs e)
         {
-            if (Principal.CodigoSenia !=null)
+            cFunciones fun = new cFunciones();
+            Double Senia = 0;
+            Double Total = 0;
+            Double Saldo = 0;
+
+            if (Principal.CodigoSenia != null)
             {
                 Int32 CodPreVenta = Convert.ToInt32(Principal.CodigoSenia);
                 cPreVenta pre = new Clases.cPreVenta();
                 DataTable trdo = pre.GetPreVentaxCodigo(CodPreVenta);
-                if (trdo.Rows.Count >0)
+                if (trdo.Rows.Count > 0)
                 {
                     Int32 CodCliente = Convert.ToInt32(trdo.Rows[0]["CodCliente"].ToString());
                     CargarCliente(CodCliente);
+                    Int32 CodAuto = Convert.ToInt32(trdo.Rows[0]["CodAutoVendido"].ToString());
+                    CargarAuto(CodAuto);
+                    if (trdo.Rows[0]["PrecioSenia"].ToString() != "")
+                    {
+                        Senia = Convert.ToDouble(trdo.Rows[0]["PrecioSenia"].ToString());
+                        txtImporteEfectivo.Text = fun.SepararDecimales(Senia.ToString());
+                    }
+
+                    if (trdo.Rows[0]["ImporteVenta"].ToString() != "")
+                    {  
+                        Total = Convert.ToDouble(trdo.Rows[0]["ImporteVenta"].ToString());
+                        txtTotalVenta.Text = fun.SepararDecimales(Total.ToString());
+                    }
+
+                    Saldo = Total - Senia;
+                    txtSaldo.Text = fun.SepararDecimales(Saldo.ToString());
                 }
             }
         }
@@ -44,6 +65,7 @@ namespace Concesionaria
                 Direccion = Direccion + " " + tcli.Rows[0]["Numero"].ToString();
                 txtDireccion.Text = Direccion;
                 txtTelefono.Text = tcli.Rows[0]["Telefono"].ToString();
+                txtTelefono.Text = tcli.Rows[0]["Celular"].ToString();
                 txtNombre.Text = nombre;
                 txtDni.Text = tcli.Rows[0]["NroDocumento"].ToString();
                 int b = 0;
@@ -94,6 +116,113 @@ namespace Concesionaria
                 string Provincia = prov.GetNombreProvincia(CodProvincia);
                 txtDireccion.Text = txtDireccion.Text + " " + Provincia;
             }
+        }
+
+        private void CargarAuto(Int32 CodAuto)
+        {
+            Clases.cAuto auto = new Clases.cAuto();
+            DataTable tauto = auto.GetAutoxCodigo(CodAuto);
+            {
+                if (tauto.Rows.Count > 0)
+                {
+                    txtMarca.Text = tauto.Rows[0]["Marca"].ToString();
+                    txtModelo.Text = tauto.Rows[0]["Descripcion"].ToString();
+                    txtChasis.Text = tauto.Rows[0]["Chasis"].ToString();
+                    txtMotor.Text = tauto.Rows[0]["Motor"].ToString();
+                    txtPatente.Text = tauto.Rows[0]["Patente"].ToString();
+                    txtAnio.Text = tauto.Rows[0]["Anio"].ToString();
+                    if (tauto.Rows[0]["CodCiudad"].ToString()!="")
+                    {
+                        Int32 CodCiudad = Convert.ToInt32(tauto.Rows[0]["CodCiudad"].ToString());
+                        cCiudad ciudad = new cCiudad();
+                        DataTable tb = ciudad.GetCiudadProvincia(CodCiudad);
+                        if (tb.Rows.Count >0)
+                        {
+                            txtLocalidad.Text = tb.Rows[0]["Ciudad"].ToString();
+                            txtProvincia.Text = tb.Rows[0]["Provincia"].ToString();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Imprimir();
+        }
+
+        private void Imprimir()
+        {
+            DateTime Fecha = dpFecha.Value;
+            int Orden = 0;
+            cReporte reporte = new cReporte();
+            string Mes = GetMes(Fecha.Month);
+            string Parte1 = "", Parte2 = "", Parte3 = "", Parte4 = "";
+            string Parte5 = "", Parte6 = "", Parte7 = "";
+            string Parte8 = "", Parte9 = "", Parte10 = "";
+            Parte1 = "En la Ciudad de San Isidro ";
+            Parte1 = Parte1 + " a los " + Fecha.Day.ToString() + " del mes de " + Mes;
+            Parte1 = Parte1 + " del año " + Fecha.Year.ToString();
+            Parte2 = "Recibí del Sr/Sr " + txtNombre.Text;
+            Parte3 = "DNI Nº " + txtDni.Text + " con domicilio en " + txtDireccion.Text;
+            Parte4 = "La suma de " + txtImporteEfectivo.Text + "(" + txtTextoImporeEfectivo.Text + ")";
+            Parte5 = "como seña por la compra de un / una "  + " Dominio Nº " + txtPatente.Text;
+            Parte6 = "Marca " + txtMarca.Text + " Modelo " + txtModelo.Text;
+            Parte7 = "Chasis " + txtChasis.Text + " Motor Nº " + txtMotor.Text;
+            Parte8 = "del año " + txtAnio.Text + ", ratificado en la localidad de " + txtLocalidad.Text + ", Provincia " + txtProvincia.Text; 
+            reporte.Borrar();
+            reporte.Insertar(Orden, Parte1, Parte2, Parte3, Parte4, Parte5,
+                Parte6, Parte7, Parte8, Parte9, Parte10);
+
+            FrmReporteSenia frm = new FrmReporteSenia();
+            frm.Show();
+
+
+        }
+
+        private string GetMes(int Mes)
+        {
+            string Nombre = "";
+            switch (Mes)
+            {
+                case 1:
+                    Nombre = "Enero";
+                    break;
+                case 2:
+                    Nombre = "Febrero";
+                    break;
+                case 3:
+                    Nombre = "Marzo";
+                    break;
+                case 4:
+                    Nombre = "Abril";
+                    break;
+                case 5:
+                    Nombre = "Mayo";
+                    break;
+                case 6:
+                    Nombre = "Junio";
+                    break;
+                case 7:
+                    Nombre = "Julio";
+                    break;
+                case 8:
+                    Nombre = "Agosto";
+                    break;
+                case 9:
+                    Nombre = "Septiembre";
+                    break;
+                case 10:
+                    Nombre = "Octubre";
+                    break;
+                case 11:
+                    Nombre = "Noviembre";
+                    break;
+                case 12:
+                    Nombre = "Diciembre";
+                    break;
+            }
+            return Nombre;
         }
     }
 }
