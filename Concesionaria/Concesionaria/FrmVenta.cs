@@ -109,6 +109,7 @@ namespace Concesionaria
             txtTotalVehiculoPartePago.BackColor  = System.Drawing.Color.LightGreen;
             txtTotalEfectivo.BackColor = System.Drawing.Color.LightGreen;
             txtTotalDocumentos.BackColor = System.Drawing.Color.LightGreen;
+            txtTotalCredito.BackColor = System.Drawing.Color.LightGreen;
             txtTotalPrenda.BackColor = System.Drawing.Color.LightGreen;
             txtTotalCobranza.BackColor = System.Drawing.Color.LightGreen;
             txtTotalCheque.BackColor = System.Drawing.Color.LightGreen;
@@ -1288,6 +1289,7 @@ namespace Concesionaria
             double ImporteCobranza = 0;
             double ImporteBanco = 0;
             double PrecioSenia = 0;
+            double ImporteCreditoBanco = 0;
 
             Clases.cFunciones fun = new Clases.cFunciones();
             if (txtPrecioVenta.Text != "")
@@ -1314,13 +1316,14 @@ namespace Concesionaria
             if (txtImporteSenia.Text != "")
                 PrecioSenia = fun.ToDouble(txtImporteSenia.Text);
 
-
+            if (txtImporteCredito.Text != "")
+                ImporteCreditoBanco = fun.ToDouble(txtImporteCredito.Text);
 
             Int32 CodVendedor = Convert.ToInt32(CmbVendedor.SelectedValue);
             //Principal.CodUsuarioLogueado 
             sql = "insert into Venta(Fecha,CodUsuario,CodCliente";
             sql = sql + ",CodAutoVendido,CodAutoPartePago,ImporteVenta,";
-            sql = sql + "ImporteAutoPartePago,ImporteCredito,ImporteEfectivo,ImportePrenda,ImporteCobranza,ImporteBanco,CodVendedor,CodStock,PrecioSenia)";
+            sql = sql + "ImporteAutoPartePago,ImporteCredito,ImporteEfectivo,ImportePrenda,ImporteCobranza,ImporteBanco,CodVendedor,CodStock,PrecioSenia,ImporteCreditoBanco)";
             sql = sql + "values(" + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + Principal.CodUsuarioLogueado.ToString();
             sql = sql + "," + CodCliente.ToString();
@@ -1339,6 +1342,7 @@ namespace Concesionaria
             sql = sql + "," + CodVendedor.ToString();
             sql = sql + "," + CodStock.ToString();
             sql = sql + "," + PrecioSenia.ToString();
+            sql = sql + "," + ImporteCreditoBanco.ToString();
             sql = sql + ")";
             return sql;
         }
@@ -2268,6 +2272,11 @@ namespace Concesionaria
                 Subtotal = Subtotal + fun.ToDouble(txtMontoTarjeta.Text);
             }
 
+            if (txtImporteCredito.Text !="")
+            {
+                Subtotal = Subtotal + fun.ToDouble(txtImporteCredito.Text);
+            }
+
             txtSubTotal.Text = Subtotal.ToString();
             if (txtSubTotal.Text != "")
             {
@@ -3057,6 +3066,15 @@ namespace Concesionaria
                 }
                 else
                     txtTotalDocumentos.Text = tVenta.Rows[0]["ImporteCredito"].ToString();
+
+                if (tVenta.Rows[0]["ImporteCreditoBanco"].ToString() != "")
+                {  
+                    string sImporte = tVenta.Rows[0]["ImporteCreditoBanco"].ToString().Replace(",", ".");
+                    vec = sImporte.Split('.');
+                    txtTotalCredito.Text = fun.FormatoEnteroMiles(vec[0]);
+                }
+                else
+                    txtTotalCredito.Text = tVenta.Rows[0]["ImporteCredito"].ToString();
 
                 if (tVenta.Rows[0]["ImporteCobranza"].ToString() != "")
                 {
@@ -3943,6 +3961,7 @@ namespace Concesionaria
             double ImporteCobranza = 0;
             double ImporteBanco = 0;
             double ImporteSenia = 0;
+            double ImporteCreditoBanco = 0;
 
             Clases.cFunciones fun = new Clases.cFunciones();
             if (txtPrecioVenta.Text != "")
@@ -3967,14 +3986,16 @@ namespace Concesionaria
                 ImporteAutoPartePago = fun.ToDouble(txtTotalVehiculoPartePago.Text);
 
             if (txtImporteSenia.Text != "")
-                ImporteSenia = fun.ToDouble(txtImporteSenia.Text); 
+                ImporteSenia = fun.ToDouble(txtImporteSenia.Text);
 
+            if (txtImporteCredito.Text != "")
+                ImporteCreditoBanco = fun.ToDouble(txtImporteCredito.Text);
 
             Int32 CodVendedor = Convert.ToInt32(CmbVendedor.SelectedValue);
             //Principal.CodUsuarioLogueado 
             sql = "insert into PreVenta(Fecha,CodUsuario,CodCliente";
             sql = sql + ",CodAutoVendido,CodAutoPartePago,ImporteVenta,";
-            sql = sql + "ImporteAutoPartePago,ImporteCredito,ImporteEfectivo,ImportePrenda,ImporteCobranza,ImporteBanco,CodVendedor,CodStock,PrecioSenia)";
+            sql = sql + "ImporteAutoPartePago,ImporteCredito,ImporteEfectivo,ImportePrenda,ImporteCobranza,ImporteBanco,CodVendedor,CodStock,PrecioSenia,ImporteCreditoBanco)";
             sql = sql + "values(" + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + Principal.CodUsuarioLogueado.ToString();
             sql = sql + "," + CodCliente.ToString();
@@ -3993,6 +4014,7 @@ namespace Concesionaria
             sql = sql + "," + CodVendedor.ToString();
             sql = sql + "," + CodStock.ToString();
             sql = sql + "," + ImporteSenia.ToString();
+            sql = sql + "," + ImporteCreditoBanco.ToString();
             sql = sql + ")";
             return sql;
         }
@@ -4089,6 +4111,14 @@ namespace Concesionaria
                         txtImporteSenia.Text = fun.SepararDecimales(txtImporteSenia.Text);
                         txtImporteSenia.Text = fun.FormatoEnteroMiles(txtImporteSenia.Text);
                     }
+
+                    if (trdo.Rows[0]["ImporteCreditoBanco"].ToString() != "")
+                    {
+                        txtImporteCredito.Text = trdo.Rows[0]["ImporteCreditoBanco"].ToString();
+                        txtImporteCredito.Text = fun.SepararDecimales(txtImporteCredito.Text);
+                        txtTotalCredito.Text = txtImporteCredito.Text;
+                    }
+
             }
         }
 
@@ -4863,6 +4893,17 @@ namespace Concesionaria
             Int32 CodCliente = Convert.ToInt32(Principal.CodigoPrincipalAbm);
             BuscarClientexCodigo(CodCliente);
            
+        }
+
+        private void txtImporteCredito_Leave(object sender, EventArgs e)
+        {   
+            if (txtImporteCredito.Text != "")
+            {
+                Clases.cFunciones fun = new Clases.cFunciones();
+                txtImporteCredito.Text = fun.FormatoEnteroMiles(txtImporteCredito.Text);
+                txtTotalCredito.Text = txtImporteCredito.Text;
+            }
+            CalcularSubTotal();
         }
     }
 };

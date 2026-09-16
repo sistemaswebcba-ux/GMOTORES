@@ -296,6 +296,10 @@
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
+            this.txtImporteCredito = new System.Windows.Forms.TextBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.txtTotalCredito = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1751,6 +1755,8 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage4.Controls.Add(this.txtImporteCredito);
+            this.tabPage4.Controls.Add(this.label61);
             this.tabPage4.Controls.Add(this.txtEfectivo);
             this.tabPage4.Controls.Add(this.label16);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
@@ -1763,7 +1769,7 @@
             // txtEfectivo
             // 
             this.txtEfectivo.BackColor = System.Drawing.SystemColors.Control;
-            this.txtEfectivo.Location = new System.Drawing.Point(106, 17);
+            this.txtEfectivo.Location = new System.Drawing.Point(135, 20);
             this.txtEfectivo.Name = "txtEfectivo";
             this.txtEfectivo.Size = new System.Drawing.Size(246, 22);
             this.txtEfectivo.TabIndex = 32;
@@ -1777,9 +1783,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(25, 20);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(53, 16);
+            this.label16.Size = new System.Drawing.Size(104, 16);
             this.label16.TabIndex = 31;
-            this.label16.Text = "Importe";
+            this.label16.Text = "Importe Efectivo";
             // 
             // tabPage6
             // 
@@ -2880,6 +2886,8 @@
             // 
             this.groupBox55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.groupBox55.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.groupBox55.Controls.Add(this.txtTotalCredito);
+            this.groupBox55.Controls.Add(this.label80);
             this.groupBox55.Controls.Add(this.label50);
             this.groupBox55.Controls.Add(this.txtTotalCheque);
             this.groupBox55.Controls.Add(this.label38);
@@ -2899,7 +2907,7 @@
             this.groupBox55.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
             this.groupBox55.Location = new System.Drawing.Point(16, 446);
             this.groupBox55.Name = "groupBox55";
-            this.groupBox55.Size = new System.Drawing.Size(1007, 84);
+            this.groupBox55.Size = new System.Drawing.Size(871, 84);
             this.groupBox55.TabIndex = 3;
             this.groupBox55.TabStop = false;
             this.groupBox55.Text = "Resumen";
@@ -2993,11 +3001,12 @@
             // 
             this.txtTotalPrenda.BackColor = System.Drawing.Color.LightGreen;
             this.txtTotalPrenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
-            this.txtTotalPrenda.Location = new System.Drawing.Point(335, 39);
+            this.txtTotalPrenda.Location = new System.Drawing.Point(225, 61);
             this.txtTotalPrenda.Name = "txtTotalPrenda";
             this.txtTotalPrenda.ReadOnly = true;
             this.txtTotalPrenda.Size = new System.Drawing.Size(100, 23);
             this.txtTotalPrenda.TabIndex = 7;
+            this.txtTotalPrenda.Visible = false;
             // 
             // txtTotalDocumentos
             // 
@@ -3012,11 +3021,12 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(335, 19);
+            this.label27.Location = new System.Drawing.Point(119, 64);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(60, 17);
             this.label27.TabIndex = 5;
             this.label27.Text = "Prenda";
+            this.label27.Visible = false;
             // 
             // label26
             // 
@@ -3088,6 +3098,43 @@
             this.btnGrabarPreVenta.Text = "Grabar pre venta";
             this.btnGrabarPreVenta.UseVisualStyleBackColor = true;
             this.btnGrabarPreVenta.Click += new System.EventHandler(this.btnGrabarPreVenta_Click);
+            // 
+            // txtImporteCredito
+            // 
+            this.txtImporteCredito.BackColor = System.Drawing.SystemColors.Control;
+            this.txtImporteCredito.Location = new System.Drawing.Point(135, 48);
+            this.txtImporteCredito.Name = "txtImporteCredito";
+            this.txtImporteCredito.Size = new System.Drawing.Size(246, 22);
+            this.txtImporteCredito.TabIndex = 34;
+            this.txtImporteCredito.Leave += new System.EventHandler(this.txtImporteCredito_Leave);
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(25, 48);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(99, 16);
+            this.label61.TabIndex = 33;
+            this.label61.Text = "Importe Crédito";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(338, 22);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(60, 17);
+            this.label80.TabIndex = 19;
+            this.label80.Text = "Crédito";
+            // 
+            // txtTotalCredito
+            // 
+            this.txtTotalCredito.BackColor = System.Drawing.Color.LightGreen;
+            this.txtTotalCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
+            this.txtTotalCredito.Location = new System.Drawing.Point(335, 39);
+            this.txtTotalCredito.Name = "txtTotalCredito";
+            this.txtTotalCredito.ReadOnly = true;
+            this.txtTotalCredito.Size = new System.Drawing.Size(100, 23);
+            this.txtTotalCredito.TabIndex = 20;
             // 
             // FrmVenta
             // 
@@ -3439,5 +3486,9 @@
         private System.Windows.Forms.DateTimePicker dpFecha;
         private System.Windows.Forms.TextBox txtComisionVendedor;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox txtImporteCredito;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.TextBox txtTotalCredito;
+        private System.Windows.Forms.Label label80;
     }
 }

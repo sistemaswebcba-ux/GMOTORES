@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTextoCredito = new System.Windows.Forms.TextBox();
+            this.txtImporteCredito = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.txtTextoSaldo = new System.Windows.Forms.TextBox();
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -66,14 +69,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTextoCredito = new System.Windows.Forms.TextBox();
-            this.txtImporteCredito = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.txtTextoEfectivoaEntregar = new System.Windows.Forms.TextBox();
+            this.txtEfectivoaEntregar = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTextoEfectivoaEntregar);
+            this.groupBox1.Controls.Add(this.txtEfectivoaEntregar);
+            this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.txtTextoCredito);
             this.groupBox1.Controls.Add(this.txtImporteCredito);
             this.groupBox1.Controls.Add(this.label16);
@@ -117,14 +123,39 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(574, 465);
+            this.groupBox1.Size = new System.Drawing.Size(574, 484);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Comprador";
             // 
+            // txtTextoCredito
+            // 
+            this.txtTextoCredito.Location = new System.Drawing.Point(308, 418);
+            this.txtTextoCredito.Name = "txtTextoCredito";
+            this.txtTextoCredito.Size = new System.Drawing.Size(210, 23);
+            this.txtTextoCredito.TabIndex = 89;
+            // 
+            // txtImporteCredito
+            // 
+            this.txtImporteCredito.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtImporteCredito.Location = new System.Drawing.Point(134, 415);
+            this.txtImporteCredito.Multiline = true;
+            this.txtImporteCredito.Name = "txtImporteCredito";
+            this.txtImporteCredito.Size = new System.Drawing.Size(159, 26);
+            this.txtImporteCredito.TabIndex = 88;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(27, 415);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(53, 17);
+            this.label16.TabIndex = 87;
+            this.label16.Text = "Crédito";
+            // 
             // txtTextoSaldo
             // 
-            this.txtTextoSaldo.Location = new System.Drawing.Point(308, 319);
+            this.txtTextoSaldo.Location = new System.Drawing.Point(308, 354);
             this.txtTextoSaldo.Name = "txtTextoSaldo";
             this.txtTextoSaldo.Size = new System.Drawing.Size(210, 23);
             this.txtTextoSaldo.TabIndex = 86;
@@ -132,7 +163,7 @@
             // txtSaldo
             // 
             this.txtSaldo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSaldo.Location = new System.Drawing.Point(134, 316);
+            this.txtSaldo.Location = new System.Drawing.Point(134, 351);
             this.txtSaldo.Multiline = true;
             this.txtSaldo.Name = "txtSaldo";
             this.txtSaldo.Size = new System.Drawing.Size(159, 26);
@@ -141,7 +172,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(23, 319);
+            this.label15.Location = new System.Drawing.Point(29, 354);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(44, 17);
             this.label15.TabIndex = 84;
@@ -210,7 +241,7 @@
             // 
             // txtTextoImporeEfectivo
             // 
-            this.txtTextoImporeEfectivo.Location = new System.Drawing.Point(312, 351);
+            this.txtTextoImporeEfectivo.Location = new System.Drawing.Point(312, 322);
             this.txtTextoImporeEfectivo.Name = "txtTextoImporeEfectivo";
             this.txtTextoImporeEfectivo.Size = new System.Drawing.Size(210, 23);
             this.txtTextoImporeEfectivo.TabIndex = 76;
@@ -218,7 +249,7 @@
             // txtImporteEfectivo
             // 
             this.txtImporteEfectivo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtImporteEfectivo.Location = new System.Drawing.Point(134, 348);
+            this.txtImporteEfectivo.Location = new System.Drawing.Point(134, 319);
             this.txtImporteEfectivo.Multiline = true;
             this.txtImporteEfectivo.Name = "txtImporteEfectivo";
             this.txtImporteEfectivo.Size = new System.Drawing.Size(159, 26);
@@ -227,11 +258,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(23, 351);
+            this.label9.Location = new System.Drawing.Point(27, 322);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 17);
+            this.label9.Size = new System.Drawing.Size(92, 17);
             this.label9.TabIndex = 74;
-            this.label9.Text = "Importe Efecivo";
+            this.label9.Text = "Importe Seña";
             // 
             // label7
             // 
@@ -252,7 +283,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(147, 425);
+            this.btnImprimir.Location = new System.Drawing.Point(134, 444);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 34);
             this.btnImprimir.TabIndex = 59;
@@ -439,30 +470,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // txtTextoCredito
+            // txtTextoEfectivoaEntregar
             // 
-            this.txtTextoCredito.Location = new System.Drawing.Point(313, 380);
-            this.txtTextoCredito.Name = "txtTextoCredito";
-            this.txtTextoCredito.Size = new System.Drawing.Size(210, 23);
-            this.txtTextoCredito.TabIndex = 89;
+            this.txtTextoEfectivoaEntregar.Location = new System.Drawing.Point(308, 383);
+            this.txtTextoEfectivoaEntregar.Name = "txtTextoEfectivoaEntregar";
+            this.txtTextoEfectivoaEntregar.Size = new System.Drawing.Size(210, 23);
+            this.txtTextoEfectivoaEntregar.TabIndex = 92;
             // 
-            // txtImporteCredito
+            // txtEfectivoaEntregar
             // 
-            this.txtImporteCredito.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtImporteCredito.Location = new System.Drawing.Point(134, 377);
-            this.txtImporteCredito.Multiline = true;
-            this.txtImporteCredito.Name = "txtImporteCredito";
-            this.txtImporteCredito.Size = new System.Drawing.Size(159, 26);
-            this.txtImporteCredito.TabIndex = 88;
+            this.txtEfectivoaEntregar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEfectivoaEntregar.Location = new System.Drawing.Point(134, 383);
+            this.txtEfectivoaEntregar.Multiline = true;
+            this.txtEfectivoaEntregar.Name = "txtEfectivoaEntregar";
+            this.txtEfectivoaEntregar.Size = new System.Drawing.Size(159, 26);
+            this.txtEfectivoaEntregar.TabIndex = 91;
+            this.txtEfectivoaEntregar.Leave += new System.EventHandler(this.txtEfectivoaEntregar_Leave);
             // 
-            // label16
+            // label17
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(24, 380);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(53, 17);
-            this.label16.TabIndex = 87;
-            this.label16.Text = "Crédito";
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(27, 383);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 17);
+            this.label17.TabIndex = 90;
+            this.label17.Text = "Efectivo";
             // 
             // FrmVistaPreviaPreVenta
             // 
@@ -522,5 +554,8 @@
         private System.Windows.Forms.TextBox txtTextoCredito;
         private System.Windows.Forms.TextBox txtImporteCredito;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtTextoEfectivoaEntregar;
+        private System.Windows.Forms.TextBox txtEfectivoaEntregar;
+        private System.Windows.Forms.Label label17;
     }
 }

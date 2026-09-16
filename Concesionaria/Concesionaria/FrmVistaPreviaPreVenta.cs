@@ -23,6 +23,7 @@ namespace Concesionaria
             Double Senia = 0;
             Double Total = 0;
             Double Saldo = 0;
+            Double Credito = 0;
 
             if (Principal.CodigoSenia != null)
             {
@@ -45,6 +46,12 @@ namespace Concesionaria
                     {  
                         Total = Convert.ToDouble(trdo.Rows[0]["ImporteVenta"].ToString());
                         txtTotalVenta.Text = fun.SepararDecimales(Total.ToString());
+                    }
+
+                    if (trdo.Rows[0]["ImporteCreditoBanco"].ToString() != "")
+                    {   
+                        Credito = Convert.ToDouble(trdo.Rows[0]["ImporteCreditoBanco"].ToString());
+                        txtImporteCredito.Text = fun.SepararDecimales(Credito.ToString());
                     }
 
                     Saldo = Total - Senia;
@@ -169,7 +176,10 @@ namespace Concesionaria
             Parte5 = "como seña por la compra de un / una "  + " Dominio Nº " + txtPatente.Text;
             Parte6 = "Marca " + txtMarca.Text + " Modelo " + txtModelo.Text;
             Parte7 = "Chasis " + txtChasis.Text + " Motor Nº " + txtMotor.Text;
-            Parte8 = "del año " + txtAnio.Text + ", ratificado en la localidad de " + txtLocalidad.Text + ", Provincia " + txtProvincia.Text; 
+            Parte8 = "del año " + txtAnio.Text + ", ratificado en la localidad de " + txtLocalidad.Text + ", Provincia " + txtProvincia.Text;
+            Parte9 = "La venta se realiza por la suma total de " + txtTotalVenta.Text + "(" + txtTextoVenta.Text + ")";
+            Parte9 = Parte9 + " siendo el saldo pagado de la siguiente fomra ";
+            Parte10 = GetTextoFormaPago();
             reporte.Borrar();
             reporte.Insertar(Orden, Parte1, Parte2, Parte3, Parte4, Parte5,
                 Parte6, Parte7, Parte8, Parte9, Parte10);
@@ -223,6 +233,55 @@ namespace Concesionaria
                     break;
             }
             return Nombre;
+        }
+
+        private void txtEfectivoaEntregar_Leave(object sender, EventArgs e)
+        {
+            cFunciones fun = new cFunciones();
+            if (txtEfectivoaEntregar.Text !="")
+            {
+                txtEfectivoaEntregar.Text = fun.SepararDecimales(txtEfectivoaEntregar.Text);
+            }
+        }
+
+        private string GetTextoFormaPago()
+        {
+            string Texto = "";
+            string a = "0", b = "0";
+            string Rdo = "";
+            if (txtEfectivoaEntregar.Text != "")
+            {
+                a = "1";
+            }
+
+            if (txtImporteCredito.Text != "")
+            {
+                b = "1";
+            }
+
+            Rdo = a + b;
+
+            switch(Rdo)
+            {
+                case "10":
+                    Texto = "en efectivo " + txtEfectivoaEntregar.Text;
+                    Texto = Texto + "(" + txtTextoEfectivoaEntregar.Text + ")";
+                    break;
+                case "01":
+                    Texto = " Crédito " + txtImporteCredito.Text;
+                    Texto = Texto + "(" + txtTextoCredito.Text + ")";
+                    break;
+                case "11":
+                    Texto = "en efectivo " + txtEfectivoaEntregar.Text;
+                    Texto = Texto + "(" + txtTextoEfectivoaEntregar.Text + ")";
+                    Texto = Texto + " Crédito " + txtImporteCredito.Text;
+                    Texto = Texto + "(" + txtTextoCredito.Text + ")";
+                    break;
+            }
+
+            
+
+            return Texto;
         }
     }
 }
