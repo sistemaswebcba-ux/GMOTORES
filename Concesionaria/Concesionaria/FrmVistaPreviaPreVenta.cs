@@ -173,7 +173,7 @@ namespace Concesionaria
             Parte2 = "Recibí del Sr/Sr " + txtNombre.Text;
             Parte3 = "DNI Nº " + txtDni.Text + " con domicilio en " + txtDireccion.Text;
             Parte4 = "La suma de " + txtImporteEfectivo.Text + "(" + txtTextoImporeEfectivo.Text + ")";
-            Parte5 = "como seña por la compra de un / una "  + " Dominio Nº " + txtPatente.Text;
+            Parte5 = "como seña por la compra de un Automóvil "  + " Dominio Nº " + txtPatente.Text;
             Parte6 = "Marca " + txtMarca.Text + " Modelo " + txtModelo.Text;
             Parte7 = "Chasis " + txtChasis.Text + " Motor Nº " + txtMotor.Text;
             Parte8 = "del año " + txtAnio.Text + ", ratificado en la localidad de " + txtLocalidad.Text + ", Provincia " + txtProvincia.Text;

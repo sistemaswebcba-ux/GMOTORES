@@ -49,7 +49,9 @@ namespace Concesionaria
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
-        {  
+        {
+
+
             DateTime Vto = Convert.ToDateTime("10/10/2026");
             DateTime Fecha = DateTime.Now;
             if (Fecha > Vto)
