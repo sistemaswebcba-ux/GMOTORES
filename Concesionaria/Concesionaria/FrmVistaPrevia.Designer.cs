@@ -52,6 +52,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtTextoVehiculo = new System.Windows.Forms.TextBox();
             this.txtTextoImporteVenta = new System.Windows.Forms.TextBox();
             this.txtImporteVenta = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -66,7 +67,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtSenia = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtTextoVehiculo = new System.Windows.Forms.TextBox();
+            this.txtTextoCredito = new System.Windows.Forms.TextBox();
+            this.txtCredito = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -284,7 +287,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(120, 176);
+            this.btnImprimir.Location = new System.Drawing.Point(119, 216);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 36);
             this.btnImprimir.TabIndex = 6;
@@ -294,6 +297,9 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtTextoCredito);
+            this.groupBox4.Controls.Add(this.txtCredito);
+            this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.txtTextoVehiculo);
             this.groupBox4.Controls.Add(this.txtTextoImporteVenta);
             this.groupBox4.Controls.Add(this.txtImporteVenta);
@@ -313,10 +319,17 @@
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(12, 242);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(655, 216);
+            this.groupBox4.Size = new System.Drawing.Size(655, 258);
             this.groupBox4.TabIndex = 44;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Forma de pago";
+            // 
+            // txtTextoVehiculo
+            // 
+            this.txtTextoVehiculo.Location = new System.Drawing.Point(241, 147);
+            this.txtTextoVehiculo.Name = "txtTextoVehiculo";
+            this.txtTextoVehiculo.Size = new System.Drawing.Size(402, 23);
+            this.txtTextoVehiculo.TabIndex = 25;
             // 
             // txtTextoImporteVenta
             // 
@@ -381,7 +394,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(27, 115);
+            this.label11.Location = new System.Drawing.Point(26, 118);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(87, 17);
             this.label11.TabIndex = 16;
@@ -426,19 +439,35 @@
             this.label10.TabIndex = 11;
             this.label10.Text = "Seña";
             // 
-            // txtTextoVehiculo
+            // txtTextoCredito
             // 
-            this.txtTextoVehiculo.Location = new System.Drawing.Point(241, 147);
-            this.txtTextoVehiculo.Name = "txtTextoVehiculo";
-            this.txtTextoVehiculo.Size = new System.Drawing.Size(402, 23);
-            this.txtTextoVehiculo.TabIndex = 25;
+            this.txtTextoCredito.Location = new System.Drawing.Point(241, 176);
+            this.txtTextoCredito.Name = "txtTextoCredito";
+            this.txtTextoCredito.Size = new System.Drawing.Size(402, 23);
+            this.txtTextoCredito.TabIndex = 28;
+            // 
+            // txtCredito
+            // 
+            this.txtCredito.Location = new System.Drawing.Point(119, 176);
+            this.txtCredito.Name = "txtCredito";
+            this.txtCredito.Size = new System.Drawing.Size(116, 23);
+            this.txtCredito.TabIndex = 27;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(27, 176);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(53, 17);
+            this.label15.TabIndex = 26;
+            this.label15.Text = "Crédito";
             // 
             // FrmVistaPrevia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(669, 470);
+            this.ClientSize = new System.Drawing.Size(669, 512);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
@@ -496,5 +525,8 @@
         private System.Windows.Forms.TextBox txtImporteVenta;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtTextoVehiculo;
+        private System.Windows.Forms.TextBox txtTextoCredito;
+        private System.Windows.Forms.TextBox txtCredito;
+        private System.Windows.Forms.Label label15;
     }
 }

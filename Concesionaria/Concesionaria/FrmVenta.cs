@@ -1679,6 +1679,12 @@ namespace Concesionaria
 
             if (txtImporteSenia.Text != "")
                 Subtotal = Subtotal + fun2.ToDouble(txtImporteSenia.Text);
+
+            if (txtImporteCredito.Text != "")
+                Subtotal = Subtotal + fun2.ToDouble(txtImporteCredito.Text);
+
+            
+
             double Total = fun2.ToDouble(txtTotalVenta.Text);
 
             if (Subtotal != Total)

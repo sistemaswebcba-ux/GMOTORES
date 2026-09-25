@@ -67,13 +67,20 @@ namespace Concesionaria
                 txtFecha.Text = Fecha.ToShortDateString();
                 Int32 CodCliente = Convert.ToInt32(trdo.Rows[0]["CodCliente"].ToString());
                 Comprador = GetDatosClientexCod(CodCliente);
-             
-                Int32 CodStock = Convert.ToInt32(trdo.Rows[0]["CodStock"].ToString());
+                
+                 Int32 CodStock = Convert.ToInt32(trdo.Rows[0]["CodStock"].ToString());
                 ExTitular = GetExTitular(CodStock);
                 if (trdo.Rows[0]["ImporteAutoPartePago"].ToString ()!="")
                 {
                     txtImporteVehiculo.Text = trdo.Rows[0]["ImporteAutoPartePago"].ToString();
                 }
+
+                if (trdo.Rows[0]["ImporteCreditoBanco"].ToString() != "")
+                {
+                    txtCredito.Text = trdo.Rows[0]["ImporteCreditoBanco"].ToString();
+                    
+                }
+
                 DataTable tcli = cliente.GetClientesxCodigo(CodCliente);
                 if (tcli.Rows.Count > 0)
                 {
@@ -129,6 +136,11 @@ namespace Concesionaria
             if (txtImporteVehiculo.Text !="")
             {
                 txtImporteVehiculo.Text = fun.SepararDecimales(txtImporteVehiculo.Text);
+            }
+            
+            if (txtCredito.Text != "")
+            {
+                txtCredito.Text = fun.SepararDecimales(txtCredito.Text);
             }
 
             if (txtDocumentos.Text != "0" && txtDocumentos.Text != "")
@@ -445,7 +457,13 @@ namespace Concesionaria
                 Parte7 = Parte7 + " Vehículos en parte de pago " + txtImporteVehiculo.Text;
                 Parte7 = Parte7 + " (" + txtTextoVehiculo.Text + ")";
             }
-            Parte8 = "en este acto, sirviendo el presente de suficiente recibo; y el saldo de $ ";
+
+            if (txtCredito.Text !="")
+            {
+                Parte7 = Parte7 + " Crédito " + txtCredito.Text + " (" + txtTextoCredito.Text + ")"; 
+            }
+
+          //  Parte8 = "en este acto, sirviendo el presente de suficiente recibo; y el saldo de $ ";
             reporte.Borrar();
             reporte.Insertar(Orden, Parte1, Parte2 , Parte3, Parte4, Parte5, Parte6, Parte7, Parte8, "", "");
             FrmBoletoGMotor frm = new FrmBoletoGMotor();
