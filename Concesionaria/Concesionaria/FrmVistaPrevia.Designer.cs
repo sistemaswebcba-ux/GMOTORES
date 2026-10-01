@@ -52,6 +52,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtTextoCredito = new System.Windows.Forms.TextBox();
+            this.txtCredito = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.txtTextoVehiculo = new System.Windows.Forms.TextBox();
             this.txtTextoImporteVenta = new System.Windows.Forms.TextBox();
             this.txtImporteVenta = new System.Windows.Forms.TextBox();
@@ -67,15 +70,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtSenia = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtTextoCredito = new System.Windows.Forms.TextBox();
-            this.txtCredito = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.txtLocalidad = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtLocalidad);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtPatente);
@@ -241,7 +243,7 @@
             // 
             this.txtDireccion.Location = new System.Drawing.Point(123, 65);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(383, 23);
+            this.txtDireccion.Size = new System.Drawing.Size(159, 23);
             this.txtDireccion.TabIndex = 5;
             // 
             // label3
@@ -273,7 +275,7 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(123, 36);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(181, 23);
+            this.txtNombre.Size = new System.Drawing.Size(159, 23);
             this.txtNombre.TabIndex = 1;
             // 
             // label1
@@ -323,6 +325,29 @@
             this.groupBox4.TabIndex = 44;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Forma de pago";
+            // 
+            // txtTextoCredito
+            // 
+            this.txtTextoCredito.Location = new System.Drawing.Point(241, 176);
+            this.txtTextoCredito.Name = "txtTextoCredito";
+            this.txtTextoCredito.Size = new System.Drawing.Size(402, 23);
+            this.txtTextoCredito.TabIndex = 28;
+            // 
+            // txtCredito
+            // 
+            this.txtCredito.Location = new System.Drawing.Point(119, 176);
+            this.txtCredito.Name = "txtCredito";
+            this.txtCredito.Size = new System.Drawing.Size(116, 23);
+            this.txtCredito.TabIndex = 27;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(27, 176);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(53, 17);
+            this.label15.TabIndex = 26;
+            this.label15.Text = "Crédito";
             // 
             // txtTextoVehiculo
             // 
@@ -439,28 +464,12 @@
             this.label10.TabIndex = 11;
             this.label10.Text = "Seña";
             // 
-            // txtTextoCredito
+            // txtLocalidad
             // 
-            this.txtTextoCredito.Location = new System.Drawing.Point(241, 176);
-            this.txtTextoCredito.Name = "txtTextoCredito";
-            this.txtTextoCredito.Size = new System.Drawing.Size(402, 23);
-            this.txtTextoCredito.TabIndex = 28;
-            // 
-            // txtCredito
-            // 
-            this.txtCredito.Location = new System.Drawing.Point(119, 176);
-            this.txtCredito.Name = "txtCredito";
-            this.txtCredito.Size = new System.Drawing.Size(116, 23);
-            this.txtCredito.TabIndex = 27;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(27, 176);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 17);
-            this.label15.TabIndex = 26;
-            this.label15.Text = "Crédito";
+            this.txtLocalidad.Location = new System.Drawing.Point(370, 66);
+            this.txtLocalidad.Name = "txtLocalidad";
+            this.txtLocalidad.Size = new System.Drawing.Size(159, 23);
+            this.txtLocalidad.TabIndex = 59;
             // 
             // FrmVistaPrevia
             // 
@@ -528,5 +537,6 @@
         private System.Windows.Forms.TextBox txtTextoCredito;
         private System.Windows.Forms.TextBox txtCredito;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtLocalidad;
     }
 }

@@ -168,12 +168,12 @@ namespace Concesionaria
             if (trdo.Rows.Count >0)
             {
                 string Nombre = trdo.Rows[0]["Nombre"].ToString();
-                txtDireccion.Text = txtDireccion.Text + " " + Nombre;
+                txtLocalidad.Text = Nombre;
                 //BSUCO LA PROVINCIA
                 Int32 CodProvincia = Convert.ToInt32(trdo.Rows[0]["CodProvincia"].ToString());
                 cProvincia Prov = new Clases.cProvincia();
                 string nombreProvincia = Prov.GetNombreProvincia(CodProvincia);
-                txtDireccion.Text  = txtDireccion.Text  + " " + nombreProvincia;
+                txtLocalidad.Text   = txtLocalidad.Text  + " " + nombreProvincia;
             }
         }
 
@@ -182,13 +182,13 @@ namespace Concesionaria
             cCiudad ciudad = new Clases.cCiudad();
             DataTable trdo = ciudad.GetCiudadxId(CodCiudad);
             if (trdo.Rows.Count >0)
-            {
+            {   
                 string Ciudad = trdo.Rows[0]["Nombre"].ToString();
-                txtDireccion.Text = txtDireccion.Text + " " + Ciudad;
+                txtLocalidad.Text = Ciudad;
                 Int32 CodProvincia = Convert.ToInt32(trdo.Rows[0]["CodProvincia"].ToString());
                 cProvincia prov = new cProvincia();
                 string Provincia = prov.GetNombreProvincia(CodProvincia);
-                txtDireccion.Text = txtDireccion.Text + " " + Provincia;
+                txtLocalidad.Text = txtLocalidad.Text + " " + Provincia;
             }
         }
 
@@ -254,7 +254,7 @@ namespace Concesionaria
                     NombreMes = "Diciembre";
                     break;
             }
-            string texto = dia.ToString() + " de " + NombreMes;
+            string texto ="a los " +  dia.ToString() + " dias del mes de  " + NombreMes;
             texto = texto + " de " + anio.ToString();
             return texto;
         }
@@ -437,13 +437,16 @@ namespace Concesionaria
             Cliente = Cliente + " Dni " + txtDni.Text;
             string Parte1 = "", Parte2 = "", Parte3 = "", Parte4 = "";
             string Parte5 = "", Parte6 = "", Parte7 = "", Parte8 = "";
+            /*
             Parte1 = "Isidro, Vende ";
             Parte1 = Parte1 + "y Transfiere al Señor/a xxx ";
             Parte1 = Parte1.Replace("xxx", Cliente);
-            Parte2 = "domiciliado es " + txtDireccion.Text;
-            Parte3 = "Marca  " + txtMarca.Text + "       Modelo " + txtModelo.Text + "    Año " + txtAnio.Text;
-            Parte4 = "Chasis " + txtChasis.Text +"       Motor " + txtMotor.Text + "      Patente " + txtPatente.Text;
-            Parte5 = "Expedido por la municipalidad de en el estado en que se encuentra ,tomando en la fecha el compradodr posesión del mismo de conformidad.";
+            */
+            Parte1 = "En la Localidad de Boulogne, Partido de San Martin, Provincia de Buenos Aires, " + GetTextoFecha();
+            Parte2 = "Nombre y Apellido " + txtNombre.Text;
+            Parte3 = "Domicilio " + txtDireccion.Text;
+            Parte4 = "Localidad " + txtLocalidad.Text;
+            Parte5 = "Teléfono " + txtTelefono.Text;
             Parte6 = "El precio de venta se establece en $ " + txtImporteVenta.Text;
             Parte6 = Parte6 + " (" + txtTextoImporteVenta.Text + ")";
             Parte7 = "Pagados de la siguiente forma ";
