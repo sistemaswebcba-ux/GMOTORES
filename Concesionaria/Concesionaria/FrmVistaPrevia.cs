@@ -437,6 +437,7 @@ namespace Concesionaria
             Cliente = Cliente + " Dni " + txtDni.Text;
             string Parte1 = "", Parte2 = "", Parte3 = "", Parte4 = "";
             string Parte5 = "", Parte6 = "", Parte7 = "", Parte8 = "";
+            string Parte9 = "", Parte10 = "", Parte11 = "";
             /*
             Parte1 = "Isidro, Vende ";
             Parte1 = Parte1 + "y Transfiere al Señor/a xxx ";
@@ -447,28 +448,18 @@ namespace Concesionaria
             Parte3 = "Domicilio " + txtDireccion.Text;
             Parte4 = "Localidad " + txtLocalidad.Text;
             Parte5 = "Teléfono " + txtTelefono.Text;
-            Parte6 = "El precio de venta se establece en $ " + txtImporteVenta.Text;
-            Parte6 = Parte6 + " (" + txtTextoImporteVenta.Text + ")";
-            Parte7 = "Pagados de la siguiente forma ";
-            if (txtEfectivo.Text !="")
-            {
-                Parte7 = Parte7 + " Efectivo " + txtEfectivo.Text + "(" + txtTextoEfectivo.Text + ")";
-            }
+            Parte6 = txtMarca.Text;
+            Parte7 = txtModelo.Text;
+            Parte8 = txtAnio.Text;
+            Parte9 = txtPatente.Text;
+            Parte10 = txtChasis.Text;
+            Parte11 = txtMotor.Text;
 
-            if (txtImporteVehiculo.Text !="" && txtImporteVehiculo.Text !="0")
-            {
-                Parte7 = Parte7 + " Vehículos en parte de pago " + txtImporteVehiculo.Text;
-                Parte7 = Parte7 + " (" + txtTextoVehiculo.Text + ")";
-            }
-
-            if (txtCredito.Text !="")
-            {
-                Parte7 = Parte7 + " Crédito " + txtCredito.Text + " (" + txtTextoCredito.Text + ")"; 
-            }
+          
 
           //  Parte8 = "en este acto, sirviendo el presente de suficiente recibo; y el saldo de $ ";
             reporte.Borrar();
-            reporte.Insertar(Orden, Parte1, Parte2 , Parte3, Parte4, Parte5, Parte6, Parte7, Parte8, "", "");
+            reporte.Insertar(Orden, Parte1, Parte2 , Parte3, Parte4, Parte5, Parte6, Parte7, Parte8, Parte9, Parte10,Parte11);
             FrmBoletoGMotor frm = new FrmBoletoGMotor();
             frm.Show();
 

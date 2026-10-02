@@ -166,7 +166,7 @@ namespace Concesionaria
             string Mes = GetMes(Fecha.Month);
             string Parte1 = "", Parte2 = "", Parte3 = "", Parte4 = "";
             string Parte5 = "", Parte6 = "", Parte7 = "";
-            string Parte8 = "", Parte9 = "", Parte10 = "";
+            string Parte8 = "", Parte9 = "", Parte10 = "", Parte11 = "";
             Parte1 = "En la Ciudad de San Isidro ";
             Parte1 = Parte1 + " a los " + Fecha.Day.ToString() + " del mes de " + Mes;
             Parte1 = Parte1 + " del año " + Fecha.Year.ToString();
@@ -182,7 +182,7 @@ namespace Concesionaria
             Parte10 = GetTextoFormaPago();
             reporte.Borrar();
             reporte.Insertar(Orden, Parte1, Parte2, Parte3, Parte4, Parte5,
-                Parte6, Parte7, Parte8, Parte9, Parte10);
+                Parte6, Parte7, Parte8, Parte9, Parte10, Parte11);
 
             FrmReporteSenia frm = new FrmReporteSenia();
             frm.Show();
