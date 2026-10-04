@@ -362,9 +362,9 @@ D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\bin\Debug\pt\Micr
 D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
 D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
-D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csprojResolveAssemblyReference.cache
 D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.cache
 D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
 D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmBoletoGMotor.resources
 D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmVistaPreviaPreVenta.resources
 D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmReporteSenia.resources
+D:\PROGRAMACION 3\GMOTORS\GMOTORES\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csprojResolveAssemblyReference.cache

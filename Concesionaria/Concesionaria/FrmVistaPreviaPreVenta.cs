@@ -182,7 +182,7 @@ namespace Concesionaria
             Parte10 = GetTextoFormaPago();
             reporte.Borrar();
             reporte.Insertar(Orden, Parte1, Parte2, Parte3, Parte4, Parte5,
-                Parte6, Parte7, Parte8, Parte9, Parte10, Parte11);
+                Parte6, Parte7, Parte8, Parte9, Parte10, Parte11,"","","");
 
             FrmReporteSenia frm = new FrmReporteSenia();
             frm.Show();

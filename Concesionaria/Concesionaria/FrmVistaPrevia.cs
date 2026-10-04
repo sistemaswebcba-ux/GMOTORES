@@ -438,12 +438,14 @@ namespace Concesionaria
             string Parte1 = "", Parte2 = "", Parte3 = "", Parte4 = "";
             string Parte5 = "", Parte6 = "", Parte7 = "", Parte8 = "";
             string Parte9 = "", Parte10 = "", Parte11 = "";
+            string Parte12 = "", Parte13 = "", Parte14 = "";
             /*
             Parte1 = "Isidro, Vende ";
             Parte1 = Parte1 + "y Transfiere al Señor/a xxx ";
             Parte1 = Parte1.Replace("xxx", Cliente);
             */
             Parte1 = "En la Localidad de Boulogne, Partido de San Martin, Provincia de Buenos Aires, " + GetTextoFecha();
+            Parte1 = Parte1 + " as partes que se individualizan a comunicación, se celebra el presente Boleto de Compra Venta de Automotor, sujeto a las siguientes clausulas y condiciones";
             Parte2 = "Nombre y Apellido " + txtNombre.Text;
             Parte3 = "Domicilio " + txtDireccion.Text;
             Parte4 = "Localidad " + txtLocalidad.Text;
@@ -454,12 +456,17 @@ namespace Concesionaria
             Parte9 = txtPatente.Text;
             Parte10 = txtChasis.Text;
             Parte11 = txtMotor.Text;
-
-          
+            Parte12 = "El precio total del Vehículo se establece en la suma de " + txtImporteVenta.Text;
+            Parte13 = "En Letras " + txtTextoImporteVenta.Text;
+            Parte14 = "Forma de Pago              ";
+            if (txtEfectivo.Text !="" && txtEfectivo.Text !="0")
+            {
+                Parte14 = Parte14 + "Efectivo " + txtEfectivo.Text + " (" + txtTextoEfectivo.Text + ")";
+            }
 
           //  Parte8 = "en este acto, sirviendo el presente de suficiente recibo; y el saldo de $ ";
             reporte.Borrar();
-            reporte.Insertar(Orden, Parte1, Parte2 , Parte3, Parte4, Parte5, Parte6, Parte7, Parte8, Parte9, Parte10,Parte11);
+            reporte.Insertar(Orden, Parte1, Parte2, Parte3, Parte4, Parte5, Parte6, Parte7, Parte8, Parte9, Parte10, Parte11, Parte12, Parte13,Parte14);
             FrmBoletoGMotor frm = new FrmBoletoGMotor();
             frm.Show();
 
