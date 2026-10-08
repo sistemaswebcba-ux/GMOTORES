@@ -167,6 +167,8 @@
             this.txtImporteSenia = new System.Windows.Forms.TextBox();
             this.label68 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.txtImporteCredito = new System.Windows.Forms.TextBox();
+            this.label61 = new System.Windows.Forms.Label();
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -277,6 +279,8 @@
             this.btnQuitarTarjeta = new System.Windows.Forms.Button();
             this.btnAgregarTarjeta = new System.Windows.Forms.Button();
             this.groupBox55 = new System.Windows.Forms.GroupBox();
+            this.txtTotalCredito = new System.Windows.Forms.TextBox();
+            this.label80 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.txtTotalCheque = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
@@ -296,10 +300,9 @@
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
-            this.txtImporteCredito = new System.Windows.Forms.TextBox();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label80 = new System.Windows.Forms.Label();
-            this.txtTotalCredito = new System.Windows.Forms.TextBox();
+            this.cmbMoneda = new System.Windows.Forms.ComboBox();
+            this.txtImporteDolares = new System.Windows.Forms.TextBox();
+            this.label81 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -373,6 +376,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.groupBox2.Controls.Add(this.cmbMoneda);
             this.groupBox2.Controls.Add(this.txtComisionVendedor);
             this.groupBox2.Controls.Add(this.label29);
             this.groupBox2.Controls.Add(this.dpFecha);
@@ -657,9 +661,9 @@
             // txtPrecioVenta
             // 
             this.txtPrecioVenta.BackColor = System.Drawing.SystemColors.Control;
-            this.txtPrecioVenta.Location = new System.Drawing.Point(542, 107);
+            this.txtPrecioVenta.Location = new System.Drawing.Point(620, 109);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(306, 22);
+            this.txtPrecioVenta.Size = new System.Drawing.Size(231, 22);
             this.txtPrecioVenta.TabIndex = 7;
             this.txtPrecioVenta.ValidatingType = typeof(int);
             this.txtPrecioVenta.TextChanged += new System.EventHandler(this.txtPrecioVenta_TextChanged);
@@ -1755,6 +1759,8 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage4.Controls.Add(this.txtImporteDolares);
+            this.tabPage4.Controls.Add(this.label81);
             this.tabPage4.Controls.Add(this.txtImporteCredito);
             this.tabPage4.Controls.Add(this.label61);
             this.tabPage4.Controls.Add(this.txtEfectivo);
@@ -1765,6 +1771,24 @@
             this.tabPage4.Size = new System.Drawing.Size(867, 168);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Efectivo";
+            // 
+            // txtImporteCredito
+            // 
+            this.txtImporteCredito.BackColor = System.Drawing.SystemColors.Control;
+            this.txtImporteCredito.Location = new System.Drawing.Point(135, 73);
+            this.txtImporteCredito.Name = "txtImporteCredito";
+            this.txtImporteCredito.Size = new System.Drawing.Size(246, 22);
+            this.txtImporteCredito.TabIndex = 34;
+            this.txtImporteCredito.Leave += new System.EventHandler(this.txtImporteCredito_Leave);
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(25, 73);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(99, 16);
+            this.label61.TabIndex = 33;
+            this.label61.Text = "Importe Crédito";
             // 
             // txtEfectivo
             // 
@@ -2912,6 +2936,25 @@
             this.groupBox55.TabStop = false;
             this.groupBox55.Text = "Resumen";
             // 
+            // txtTotalCredito
+            // 
+            this.txtTotalCredito.BackColor = System.Drawing.Color.LightGreen;
+            this.txtTotalCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
+            this.txtTotalCredito.Location = new System.Drawing.Point(335, 39);
+            this.txtTotalCredito.Name = "txtTotalCredito";
+            this.txtTotalCredito.ReadOnly = true;
+            this.txtTotalCredito.Size = new System.Drawing.Size(100, 23);
+            this.txtTotalCredito.TabIndex = 20;
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(338, 22);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(60, 17);
+            this.label80.TabIndex = 19;
+            this.label80.Text = "Crédito";
+            // 
             // label50
             // 
             this.label50.AutoSize = true;
@@ -3099,42 +3142,32 @@
             this.btnGrabarPreVenta.UseVisualStyleBackColor = true;
             this.btnGrabarPreVenta.Click += new System.EventHandler(this.btnGrabarPreVenta_Click);
             // 
-            // txtImporteCredito
+            // cmbMoneda
             // 
-            this.txtImporteCredito.BackColor = System.Drawing.SystemColors.Control;
-            this.txtImporteCredito.Location = new System.Drawing.Point(135, 48);
-            this.txtImporteCredito.Name = "txtImporteCredito";
-            this.txtImporteCredito.Size = new System.Drawing.Size(246, 22);
-            this.txtImporteCredito.TabIndex = 34;
-            this.txtImporteCredito.Leave += new System.EventHandler(this.txtImporteCredito_Leave);
+            this.cmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda.FormattingEnabled = true;
+            this.cmbMoneda.Location = new System.Drawing.Point(542, 107);
+            this.cmbMoneda.Name = "cmbMoneda";
+            this.cmbMoneda.Size = new System.Drawing.Size(72, 24);
+            this.cmbMoneda.TabIndex = 76;
             // 
-            // label61
+            // txtImporteDolares
             // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(25, 48);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(99, 16);
-            this.label61.TabIndex = 33;
-            this.label61.Text = "Importe Crédito";
+            this.txtImporteDolares.BackColor = System.Drawing.SystemColors.Control;
+            this.txtImporteDolares.Location = new System.Drawing.Point(135, 48);
+            this.txtImporteDolares.Name = "txtImporteDolares";
+            this.txtImporteDolares.Size = new System.Drawing.Size(246, 22);
+            this.txtImporteDolares.TabIndex = 36;
+            this.txtImporteDolares.Leave += new System.EventHandler(this.txtImporteDolares_Leave);
             // 
-            // label80
+            // label81
             // 
-            this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(338, 22);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(60, 17);
-            this.label80.TabIndex = 19;
-            this.label80.Text = "Crédito";
-            // 
-            // txtTotalCredito
-            // 
-            this.txtTotalCredito.BackColor = System.Drawing.Color.LightGreen;
-            this.txtTotalCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
-            this.txtTotalCredito.Location = new System.Drawing.Point(335, 39);
-            this.txtTotalCredito.Name = "txtTotalCredito";
-            this.txtTotalCredito.ReadOnly = true;
-            this.txtTotalCredito.Size = new System.Drawing.Size(100, 23);
-            this.txtTotalCredito.TabIndex = 20;
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(25, 48);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(104, 16);
+            this.label81.TabIndex = 35;
+            this.label81.Text = "Importe Dolares";
             // 
             // FrmVenta
             // 
@@ -3490,5 +3523,8 @@
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TextBox txtTotalCredito;
         private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.ComboBox cmbMoneda;
+        private System.Windows.Forms.TextBox txtImporteDolares;
+        private System.Windows.Forms.Label label81;
     }
 }

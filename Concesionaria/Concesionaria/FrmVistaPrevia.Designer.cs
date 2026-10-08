@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtLocalidad = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPatente = new System.Windows.Forms.TextBox();
@@ -59,18 +60,19 @@
             this.txtTextoImporteVenta = new System.Windows.Forms.TextBox();
             this.txtImporteVenta = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtTextoDocumento = new System.Windows.Forms.TextBox();
+            this.txtTextoDolares = new System.Windows.Forms.TextBox();
             this.txtTextoEfectivo = new System.Windows.Forms.TextBox();
             this.txtTextoSenia = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtImporteVehiculo = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtDocumentos = new System.Windows.Forms.TextBox();
+            this.txtImporteDolares = new System.Windows.Forms.TextBox();
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtSenia = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtLocalidad = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.cmbMoneda = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +109,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Comprador";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtLocalidad
+            // 
+            this.txtLocalidad.Location = new System.Drawing.Point(370, 66);
+            this.txtLocalidad.Name = "txtLocalidad";
+            this.txtLocalidad.Size = new System.Drawing.Size(136, 23);
+            this.txtLocalidad.TabIndex = 59;
             // 
             // label14
             // 
@@ -289,7 +298,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(119, 216);
+            this.btnImprimir.Location = new System.Drawing.Point(123, 233);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(75, 36);
             this.btnImprimir.TabIndex = 6;
@@ -299,6 +308,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.cmbMoneda);
+            this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.txtTextoCredito);
             this.groupBox4.Controls.Add(this.txtCredito);
             this.groupBox4.Controls.Add(this.label15);
@@ -306,13 +317,13 @@
             this.groupBox4.Controls.Add(this.txtTextoImporteVenta);
             this.groupBox4.Controls.Add(this.txtImporteVenta);
             this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.txtTextoDocumento);
+            this.groupBox4.Controls.Add(this.txtTextoDolares);
             this.groupBox4.Controls.Add(this.txtTextoEfectivo);
             this.groupBox4.Controls.Add(this.txtTextoSenia);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.txtImporteVehiculo);
             this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.txtDocumentos);
+            this.groupBox4.Controls.Add(this.txtImporteDolares);
             this.groupBox4.Controls.Add(this.txtEfectivo);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.btnImprimir);
@@ -321,21 +332,21 @@
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(12, 242);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(655, 258);
+            this.groupBox4.Size = new System.Drawing.Size(655, 275);
             this.groupBox4.TabIndex = 44;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Forma de pago";
             // 
             // txtTextoCredito
             // 
-            this.txtTextoCredito.Location = new System.Drawing.Point(241, 176);
+            this.txtTextoCredito.Location = new System.Drawing.Point(244, 206);
             this.txtTextoCredito.Name = "txtTextoCredito";
-            this.txtTextoCredito.Size = new System.Drawing.Size(402, 23);
+            this.txtTextoCredito.Size = new System.Drawing.Size(355, 23);
             this.txtTextoCredito.TabIndex = 28;
             // 
             // txtCredito
             // 
-            this.txtCredito.Location = new System.Drawing.Point(119, 176);
+            this.txtCredito.Location = new System.Drawing.Point(122, 206);
             this.txtCredito.Name = "txtCredito";
             this.txtCredito.Size = new System.Drawing.Size(116, 23);
             this.txtCredito.TabIndex = 27;
@@ -343,7 +354,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(27, 176);
+            this.label15.Location = new System.Drawing.Point(26, 206);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 17);
             this.label15.TabIndex = 26;
@@ -351,21 +362,21 @@
             // 
             // txtTextoVehiculo
             // 
-            this.txtTextoVehiculo.Location = new System.Drawing.Point(241, 147);
+            this.txtTextoVehiculo.Location = new System.Drawing.Point(244, 177);
             this.txtTextoVehiculo.Name = "txtTextoVehiculo";
-            this.txtTextoVehiculo.Size = new System.Drawing.Size(402, 23);
+            this.txtTextoVehiculo.Size = new System.Drawing.Size(355, 23);
             this.txtTextoVehiculo.TabIndex = 25;
             // 
             // txtTextoImporteVenta
             // 
-            this.txtTextoImporteVenta.Location = new System.Drawing.Point(241, 28);
+            this.txtTextoImporteVenta.Location = new System.Drawing.Point(244, 58);
             this.txtTextoImporteVenta.Name = "txtTextoImporteVenta";
-            this.txtTextoImporteVenta.Size = new System.Drawing.Size(402, 23);
+            this.txtTextoImporteVenta.Size = new System.Drawing.Size(355, 23);
             this.txtTextoImporteVenta.TabIndex = 24;
             // 
             // txtImporteVenta
             // 
-            this.txtImporteVenta.Location = new System.Drawing.Point(120, 28);
+            this.txtImporteVenta.Location = new System.Drawing.Point(123, 58);
             this.txtImporteVenta.Name = "txtImporteVenta";
             this.txtImporteVenta.Size = new System.Drawing.Size(116, 23);
             this.txtImporteVenta.TabIndex = 23;
@@ -373,37 +384,37 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 28);
+            this.label7.Location = new System.Drawing.Point(24, 58);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 17);
             this.label7.TabIndex = 22;
             this.label7.Text = "Importe Venta";
             // 
-            // txtTextoDocumento
+            // txtTextoDolares
             // 
-            this.txtTextoDocumento.Location = new System.Drawing.Point(241, 115);
-            this.txtTextoDocumento.Name = "txtTextoDocumento";
-            this.txtTextoDocumento.Size = new System.Drawing.Size(402, 23);
-            this.txtTextoDocumento.TabIndex = 21;
+            this.txtTextoDolares.Location = new System.Drawing.Point(244, 145);
+            this.txtTextoDolares.Name = "txtTextoDolares";
+            this.txtTextoDolares.Size = new System.Drawing.Size(355, 23);
+            this.txtTextoDolares.TabIndex = 21;
             // 
             // txtTextoEfectivo
             // 
-            this.txtTextoEfectivo.Location = new System.Drawing.Point(241, 86);
+            this.txtTextoEfectivo.Location = new System.Drawing.Point(244, 116);
             this.txtTextoEfectivo.Name = "txtTextoEfectivo";
-            this.txtTextoEfectivo.Size = new System.Drawing.Size(402, 23);
+            this.txtTextoEfectivo.Size = new System.Drawing.Size(355, 23);
             this.txtTextoEfectivo.TabIndex = 20;
             // 
             // txtTextoSenia
             // 
-            this.txtTextoSenia.Location = new System.Drawing.Point(241, 57);
+            this.txtTextoSenia.Location = new System.Drawing.Point(244, 87);
             this.txtTextoSenia.Name = "txtTextoSenia";
-            this.txtTextoSenia.Size = new System.Drawing.Size(402, 23);
+            this.txtTextoSenia.Size = new System.Drawing.Size(355, 23);
             this.txtTextoSenia.TabIndex = 19;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(27, 147);
+            this.label13.Location = new System.Drawing.Point(24, 177);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(62, 17);
             this.label13.TabIndex = 18;
@@ -411,7 +422,7 @@
             // 
             // txtImporteVehiculo
             // 
-            this.txtImporteVehiculo.Location = new System.Drawing.Point(119, 147);
+            this.txtImporteVehiculo.Location = new System.Drawing.Point(122, 177);
             this.txtImporteVehiculo.Name = "txtImporteVehiculo";
             this.txtImporteVehiculo.Size = new System.Drawing.Size(116, 23);
             this.txtImporteVehiculo.TabIndex = 17;
@@ -419,22 +430,22 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(26, 118);
+            this.label11.Location = new System.Drawing.Point(24, 145);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(87, 17);
+            this.label11.Size = new System.Drawing.Size(57, 17);
             this.label11.TabIndex = 16;
-            this.label11.Text = "Documentos";
+            this.label11.Text = "Dolares";
             // 
-            // txtDocumentos
+            // txtImporteDolares
             // 
-            this.txtDocumentos.Location = new System.Drawing.Point(119, 113);
-            this.txtDocumentos.Name = "txtDocumentos";
-            this.txtDocumentos.Size = new System.Drawing.Size(116, 23);
-            this.txtDocumentos.TabIndex = 15;
+            this.txtImporteDolares.Location = new System.Drawing.Point(122, 143);
+            this.txtImporteDolares.Name = "txtImporteDolares";
+            this.txtImporteDolares.Size = new System.Drawing.Size(116, 23);
+            this.txtImporteDolares.TabIndex = 15;
             // 
             // txtEfectivo
             // 
-            this.txtEfectivo.Location = new System.Drawing.Point(119, 84);
+            this.txtEfectivo.Location = new System.Drawing.Point(122, 114);
             this.txtEfectivo.Name = "txtEfectivo";
             this.txtEfectivo.Size = new System.Drawing.Size(116, 23);
             this.txtEfectivo.TabIndex = 14;
@@ -442,7 +453,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(26, 84);
+            this.label9.Location = new System.Drawing.Point(23, 114);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 17);
             this.label9.TabIndex = 13;
@@ -450,7 +461,7 @@
             // 
             // txtSenia
             // 
-            this.txtSenia.Location = new System.Drawing.Point(119, 55);
+            this.txtSenia.Location = new System.Drawing.Point(122, 85);
             this.txtSenia.Name = "txtSenia";
             this.txtSenia.Size = new System.Drawing.Size(116, 23);
             this.txtSenia.TabIndex = 12;
@@ -458,25 +469,36 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 60);
+            this.label10.Location = new System.Drawing.Point(24, 88);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 17);
             this.label10.TabIndex = 11;
             this.label10.Text = "Seña";
             // 
-            // txtLocalidad
+            // label16
             // 
-            this.txtLocalidad.Location = new System.Drawing.Point(370, 66);
-            this.txtLocalidad.Name = "txtLocalidad";
-            this.txtLocalidad.Size = new System.Drawing.Size(159, 23);
-            this.txtLocalidad.TabIndex = 59;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(24, 28);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(59, 17);
+            this.label16.TabIndex = 29;
+            this.label16.Text = "Moneda";
+            // 
+            // cmbMoneda
+            // 
+            this.cmbMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda.FormattingEnabled = true;
+            this.cmbMoneda.Location = new System.Drawing.Point(123, 28);
+            this.cmbMoneda.Name = "cmbMoneda";
+            this.cmbMoneda.Size = new System.Drawing.Size(121, 24);
+            this.cmbMoneda.TabIndex = 30;
             // 
             // FrmVistaPrevia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(669, 512);
+            this.ClientSize = new System.Drawing.Size(669, 518);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
@@ -507,7 +529,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtDocumentos;
+        private System.Windows.Forms.TextBox txtImporteDolares;
         private System.Windows.Forms.TextBox txtEfectivo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtSenia;
@@ -516,7 +538,7 @@
         private System.Windows.Forms.TextBox txtImporteVehiculo;
         private System.Windows.Forms.TextBox txtTextoEfectivo;
         private System.Windows.Forms.TextBox txtTextoSenia;
-        private System.Windows.Forms.TextBox txtTextoDocumento;
+        private System.Windows.Forms.TextBox txtTextoDolares;
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtFecha;
@@ -538,5 +560,7 @@
         private System.Windows.Forms.TextBox txtCredito;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtLocalidad;
+        private System.Windows.Forms.ComboBox cmbMoneda;
+        private System.Windows.Forms.Label label16;
     }
 }

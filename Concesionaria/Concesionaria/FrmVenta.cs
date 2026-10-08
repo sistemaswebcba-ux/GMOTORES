@@ -55,6 +55,9 @@ namespace Concesionaria
             fun.LlenarCombo(CmbTipoCombustible2, "TipoCombustible", "Nombre", "Codigo");
             fun.LlenarCombo(cmbProvincia2, "Provincia", "Nombre", "CodProvincia");
             fun.LlenarCombo(CmbProvinciaAuto , "Provincia", "Nombre", "CodProvincia");
+            fun.LlenarCombo(cmbMoneda, "Moneda", "Nombre", "CodMoneda");
+            if (cmbMoneda.Items.Count > 0)
+                cmbMoneda.SelectedIndex = 0;
             CargarVendedor();
             tbTarjeta = fun.CrearTabla("CodTarjeta;Nombre;Importe");
             OcultarVendedor(false);
@@ -1290,6 +1293,11 @@ namespace Concesionaria
             double ImporteBanco = 0;
             double PrecioSenia = 0;
             double ImporteCreditoBanco = 0;
+            Int32? CodMoneda = null;
+            Double ImporteDolares = 0;
+
+            if (cmbMoneda.SelectedIndex > 0)
+                CodMoneda = Convert.ToInt32(cmbMoneda.SelectedValue);
 
             Clases.cFunciones fun = new Clases.cFunciones();
             if (txtPrecioVenta.Text != "")
@@ -1319,11 +1327,14 @@ namespace Concesionaria
             if (txtImporteCredito.Text != "")
                 ImporteCreditoBanco = fun.ToDouble(txtImporteCredito.Text);
 
+            if (txtImporteDolares.Text != "")
+                ImporteDolares = fun.ToDouble(txtImporteDolares.Text);
+
             Int32 CodVendedor = Convert.ToInt32(CmbVendedor.SelectedValue);
             //Principal.CodUsuarioLogueado 
             sql = "insert into Venta(Fecha,CodUsuario,CodCliente";
             sql = sql + ",CodAutoVendido,CodAutoPartePago,ImporteVenta,";
-            sql = sql + "ImporteAutoPartePago,ImporteCredito,ImporteEfectivo,ImportePrenda,ImporteCobranza,ImporteBanco,CodVendedor,CodStock,PrecioSenia,ImporteCreditoBanco)";
+            sql = sql + "ImporteAutoPartePago,ImporteCredito,ImporteEfectivo,ImportePrenda,ImporteCobranza,ImporteBanco,CodVendedor,CodStock,PrecioSenia,ImporteCreditoBanco,CodMoneda,ImporteDolares)";
             sql = sql + "values(" + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + Principal.CodUsuarioLogueado.ToString();
             sql = sql + "," + CodCliente.ToString();
@@ -1343,6 +1354,11 @@ namespace Concesionaria
             sql = sql + "," + CodStock.ToString();
             sql = sql + "," + PrecioSenia.ToString();
             sql = sql + "," + ImporteCreditoBanco.ToString();
+            if (CodMoneda != null)
+                sql = sql + "," + CodMoneda.ToString();
+            else
+                sql = sql + ",null";
+            sql = sql + "," + ImporteDolares.ToString();
             sql = sql + ")";
             return sql;
         }
@@ -1601,6 +1617,13 @@ namespace Concesionaria
                     }
                 }
             }
+
+            if (cmbMoneda.SelectedIndex <1)
+            {
+                MessageBox.Show("Debe seleccionar una moneda", Clases.cMensaje.Mensaje());
+                return false;
+            }
+
             if (CmbVendedor.SelectedIndex < 1)
             {
                 MessageBox.Show("Debe ingresar un vendedor ", Clases.cMensaje.Mensaje());
@@ -1683,15 +1706,25 @@ namespace Concesionaria
             if (txtImporteCredito.Text != "")
                 Subtotal = Subtotal + fun2.ToDouble(txtImporteCredito.Text);
 
-            
-
             double Total = fun2.ToDouble(txtTotalVenta.Text);
 
-            if (Subtotal != Total)
+            Int32 CodMoneda = Convert.ToInt32(cmbMoneda.SelectedValue);
+            Boolean ValidaPesos = true;
+            if (CodMoneda == 2)
+                ValidaPesos = false;
+            if (txtImporteDolares.Text != "" && txtImporteDolares.Text != "0")
+                ValidaPesos = false;
+
+            if (ValidaPesos ==true)
             {
-                MessageBox.Show("No coinciden los subtatotales con el importe de la venta", Clases.cMensaje.Mensaje());
-                return false;
+                //solo valido cuando sean pesos
+                if (Subtotal != Total)
+                {
+                    MessageBox.Show("No coinciden los subtatotales con el importe de la venta", Clases.cMensaje.Mensaje());
+                    return false;
+                }
             }
+          
 
 
             return true;
@@ -4910,6 +4943,12 @@ namespace Concesionaria
                 txtTotalCredito.Text = txtImporteCredito.Text;
             }
             CalcularSubTotal();
+        }
+
+        private void txtImporteDolares_Leave(object sender, EventArgs e)
+        {
+            cFunciones fun = new Clases.cFunciones();
+            txtImporteDolares.Text = fun.SepararDecimales(txtImporteDolares.Text);
         }
     }
 };

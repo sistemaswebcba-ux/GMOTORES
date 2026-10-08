@@ -23,8 +23,10 @@ namespace Concesionaria
 
         private void FrmVistaPrevia_Load(object sender, EventArgs e)
         {
+            cFunciones fun = new Clases.cFunciones();
             if (Principal.CodigoPrincipalAbm != null)
             {
+                fun.LlenarCombo(cmbMoneda, "Moneda", "Nombre", "CodMoneda");
                 CargarDatos(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 BuscarGastosTransferencia(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                 CargarMontosVenta(Convert.ToInt32(Principal.CodigoPrincipalAbm));
@@ -77,8 +79,17 @@ namespace Concesionaria
 
                 if (trdo.Rows[0]["ImporteCreditoBanco"].ToString() != "")
                 {
-                    txtCredito.Text = trdo.Rows[0]["ImporteCreditoBanco"].ToString();
-                    
+                    txtCredito.Text = trdo.Rows[0]["ImporteCreditoBanco"].ToString();            
+                }
+                 
+                if (trdo.Rows[0]["ImporteDolares"].ToString() != "")
+                {
+                    txtImporteDolares.Text = trdo.Rows[0]["ImporteDolares"].ToString();
+                }
+
+                if (trdo.Rows[0]["CodMoneda"].ToString() != "")
+                {
+                    cmbMoneda.SelectedValue  = trdo.Rows[0]["CodMoneda"].ToString();
                 }
 
                 DataTable tcli = cliente.GetClientesxCodigo(CodCliente);
@@ -111,7 +122,8 @@ namespace Concesionaria
                 }
             }
             txtEfectivo.Text = trdo.Rows[0]["ImporteEfectivo"].ToString();
-            txtDocumentos.Text = trdo.Rows[0]["ImporteCredito"].ToString(); 
+            txtImporteDolares.Text = trdo.Rows[0]["ImporteDolares"].ToString();
+            txtCredito.Text = trdo.Rows[0]["ImporteCredito"].ToString(); 
             Int32 CodAuto = Convert.ToInt32(trdo.Rows[0]["CodAutoVendido"].ToString());
             Clases.cAuto auto = new Clases.cAuto();
             DataTable tauto = auto.GetAutoxCodigo(CodAuto);
@@ -143,12 +155,11 @@ namespace Concesionaria
                 txtCredito.Text = fun.SepararDecimales(txtCredito.Text);
             }
 
-            if (txtDocumentos.Text != "0" && txtDocumentos.Text != "")
+            if (txtImporteDolares.Text != "0" && txtImporteDolares.Text != "")
             {
-                txtDocumentos.Text = fun.SepararDecimales(txtDocumentos.Text);
-                txtDocumentos.Text = fun.FormatoEnteroMiles(txtDocumentos.Text);
-                cCuota cuo = new cCuota();
-                string tex = cuo.GetTextoCuota(Convert.ToInt32(Principal.CodigoPrincipalAbm));
+                txtImporteDolares.Text = fun.SepararDecimales(txtImporteDolares.Text);
+                txtImporteDolares.Text = fun.FormatoEnteroMiles(txtImporteDolares.Text);
+              
             }
             Clases.cPrenda prenda = new Clases.cPrenda();
             DataTable trdoPrenda = prenda.GetPrendaxCodVenta(Convert.ToInt32(Principal.CodigoPrincipalAbm));
@@ -458,13 +469,22 @@ namespace Concesionaria
             Parte11 = txtMotor.Text;
             Parte12 = "El precio total del Vehículo se establece en la suma de " + txtImporteVenta.Text;
             Parte13 = "En Letras " + txtTextoImporteVenta.Text;
-            Parte14 = "Forma de Pago              ";
+            if (cmbMoneda.SelectedIndex > 0)
+                Parte13 = Parte13 + " " + cmbMoneda.Text;
+            Parte14 = "Forma de Pago ";
             if (txtEfectivo.Text !="" && txtEfectivo.Text !="0")
             {
                 Parte14 = Parte14 + "Efectivo " + txtEfectivo.Text + " (" + txtTextoEfectivo.Text + ")";
             }
+              
+            if (txtImporteDolares.Text != "" && txtImporteDolares.Text != "0")
+            {
+                Parte14 = Parte14 + " Dolares " + txtImporteDolares.Text + " (" + txtTextoDolares.Text  + ")";
+            }
 
-          //  Parte8 = "en este acto, sirviendo el presente de suficiente recibo; y el saldo de $ ";
+
+
+            //  Parte8 = "en este acto, sirviendo el presente de suficiente recibo; y el saldo de $ ";
             reporte.Borrar();
             reporte.Insertar(Orden, Parte1, Parte2, Parte3, Parte4, Parte5, Parte6, Parte7, Parte8, Parte9, Parte10, Parte11, Parte12, Parte13,Parte14);
             FrmBoletoGMotor frm = new FrmBoletoGMotor();
