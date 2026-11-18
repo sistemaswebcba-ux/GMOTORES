@@ -123,7 +123,7 @@ namespace Concesionaria
             }
             txtEfectivo.Text = trdo.Rows[0]["ImporteEfectivo"].ToString();
             txtImporteDolares.Text = trdo.Rows[0]["ImporteDolares"].ToString();
-            txtCredito.Text = trdo.Rows[0]["ImporteCredito"].ToString(); 
+           // txtCredito.Text = trdo.Rows[0]["ImporteCredito"].ToString(); 
             Int32 CodAuto = Convert.ToInt32(trdo.Rows[0]["CodAutoVendido"].ToString());
             Clases.cAuto auto = new Clases.cAuto();
             DataTable tauto = auto.GetAutoxCodigo(CodAuto);
@@ -480,6 +480,11 @@ namespace Concesionaria
             if (txtImporteDolares.Text != "" && txtImporteDolares.Text != "0")
             {
                 Parte14 = Parte14 + " Dolares " + txtImporteDolares.Text + " (" + txtTextoDolares.Text  + ")";
+            }
+
+            if (txtCredito.Text !=""  && txtCredito.Text != "0" )
+            {
+                Parte14 = Parte14 + " Crédito " + txtCredito.Text + " (" + txtTextoCredito.Text + ")";
             }
 
 

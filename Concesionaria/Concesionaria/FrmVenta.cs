@@ -1503,6 +1503,8 @@ namespace Concesionaria
             GetCostos(-1);
             tprenda.Clear();
             txtNroDoc.Text = "";
+            txtImporteCredito.Text = "";
+            txtTotalCredito.Text = "";
             txtCodCLiente.Text = "";
             txtNombre.Text = "";
             txtApellido.Text = "";
@@ -3107,6 +3109,12 @@ namespace Concesionaria
                     txtTotalDocumentos.Text = tVenta.Rows[0]["ImporteCredito"].ToString();
 
                 if (tVenta.Rows[0]["ImporteCreditoBanco"].ToString() != "")
+                {
+                    Double ImporteCredito = Convert.ToDouble(tVenta.Rows[0]["ImporteCreditoBanco"].ToString());
+                    txtImporteCredito.Text = fun.SepararDecimales(ImporteCredito.ToString());
+                }
+
+                    if (tVenta.Rows[0]["ImporteCreditoBanco"].ToString() != "")
                 {  
                     string sImporte = tVenta.Rows[0]["ImporteCreditoBanco"].ToString().Replace(",", ".");
                     vec = sImporte.Split('.');

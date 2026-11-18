@@ -50,7 +50,7 @@ namespace Concesionaria
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+            /*
 
             DateTime Vto = Convert.ToDateTime("10/10/2027");
             DateTime Fecha = DateTime.Now;
@@ -58,6 +58,7 @@ namespace Concesionaria
             {
                 btnBuscarApe.Enabled = false;
             }
+            */
             
         }
     }
